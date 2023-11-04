@@ -13,7 +13,7 @@ import java.io.IOException;
 import dal.UserDAO;
 
 
-public class SignUpServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -22,18 +22,25 @@ public class SignUpServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
+			UserDAO udao = new UserDAO();
+			HttpSession session = request.getSession();
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
-			String phone = request.getParameter("phone");
-			User u = new User(username,password,phone);
-			HttpSession session = request.getSession();
-			UserDAO udao = new UserDAO();
-			if(udao.signUp(u)) {
-				session.setAttribute("succMsg", "dang ky thanh cong");
+			
+			if("admin".equals(username)&&"123".equals(password)) {
+				User us = new User();
+				session.setAttribute("user", us);
+				response.sendRedirect("homeadmin.jsp");
 			}else {
-				session.setAttribute("failedMsg", "dang ky that bai");
+				User u = udao.login(username, password);
+				if(u!=null) {
+					session.setAttribute("user", u);
+					response.sendRedirect("home.jsp");
+				}else {
+					session.setAttribute("failedMsg", "username or password sai");
+					response.sendRedirect("login.jsp");
+				}
 			}
-			response.sendRedirect("signup.jsp");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

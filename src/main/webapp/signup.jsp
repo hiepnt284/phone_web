@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page isELIgnored="false" %>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -49,7 +50,14 @@
 <body>
     <div class="container">
         <h1>Đăng ký tài khoản</h1>
-        <h3>${requestScope.mess}</h3>
+        <c:if test="${not empty succMsg }">
+        	<h3 style="color:green">${succMsg}</h3>
+        	<c:remove var="succMsg" scope="session"/>
+        </c:if>
+        <c:if test="${not empty failedMsg }">
+        	<h3 style="color:red">${failedMsg}</h3>
+        	<c:remove var="failedMsg" scope="session"/>
+        </c:if>
         <form id="registration-form" action="signup" method="post">
             <div class="form-group">
                 <label for="username">Username:</label>
