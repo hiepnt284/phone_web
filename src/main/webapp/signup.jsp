@@ -49,7 +49,8 @@
 <body>
     <div class="container">
         <h1>Đăng ký tài khoản</h1>
-        <form id="registration-form" action="" method="post">
+        <h3>${requestScope.mess}</h3>
+        <form id="registration-form" action="signup" method="post">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>
