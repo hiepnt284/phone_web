@@ -30,7 +30,7 @@ public class LoginServlet extends HttpServlet {
 			if("admin".equals(username)&&"123".equals(password)) {
 				User us = new User();
 				session.setAttribute("user", us);
-				response.sendRedirect("homeadmin.jsp");
+				response.sendRedirect("admin/homeadmin.jsp");
 			}else {
 				User u = udao.login(username, password);
 				if(u!=null) {

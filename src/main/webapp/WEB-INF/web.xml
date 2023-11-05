@@ -39,4 +39,44 @@
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddProductServlet</display-name>
+    <servlet-name>AddProductServlet</servlet-name>
+    <servlet-class>controller.AddProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddProductServlet</servlet-name>
+    <url-pattern>/addproduct</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ListProductServlet</display-name>
+    <servlet-name>ListProductServlet</servlet-name>
+    <servlet-class>controller.ListProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListProductServlet</servlet-name>
+    <url-pattern>/listproduct</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteProductServlet</display-name>
+    <servlet-name>DeleteProductServlet</servlet-name>
+    <servlet-class>controller.DeleteProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteProductServlet</servlet-name>
+    <url-pattern>/deleteproduct</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditProductServlet</display-name>
+    <servlet-name>EditProductServlet</servlet-name>
+    <servlet-class>controller.EditProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditProductServlet</servlet-name>
+    <url-pattern>/editproduct</url-pattern>
+  </servlet-mapping>
 </web-app>

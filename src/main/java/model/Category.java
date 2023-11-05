@@ -38,6 +38,11 @@ public class Category {
 	public void setDescribe(String describe) {
 		this.describe = describe;
 	}
+
+	@Override
+	public String toString() {
+		return "Category [id=" + id + ", name=" + name + ", describe=" + describe + "]";
+	}
 	
 	
 	
