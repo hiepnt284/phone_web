@@ -46,7 +46,7 @@ public class EditProductServlet extends HttpServlet {
 			}else {
 				session.setAttribute("failedMsg", "update that bai");
 			}
-			response.sendRedirect("http://localhost:8080/dien_thoai3/listproduct");
+			response.sendRedirect("http://localhost:8888/dien_thoai3/listproduct");
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

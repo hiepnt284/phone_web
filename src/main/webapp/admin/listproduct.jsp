@@ -67,7 +67,7 @@
 <script type="text/javascript">
     function doDelete(id) {
         if (confirm("Are you sure to delete product with id =" + id)) {
-            window.location = "http://localhost:8080/dien_thoai3/deleteproduct?id=" + id;
+            window.location = "http://localhost:8888/dien_thoai3/deleteproduct?id=" + id;
         }
     }
 </script>
@@ -107,7 +107,7 @@
                     <td>${c.describe}</td>
                     <td>${c.category.name}</td>
                     <td class="action-buttons">
-                        <a class="button" href="http://localhost:8080/dien_thoai3/editproduct?id=${id}">Update</a>
+                        <a class="button" href="http://localhost:8888/dien_thoai3/editproduct?id=${id}">Update</a>
                         <a class="button" href="#" onclick="doDelete('${id}')">Delete</a>
                     </td>
                 </tr>

@@ -25,7 +25,7 @@ public class DeleteProductServlet extends HttpServlet {
 		}else {
 			session.setAttribute("failedMsg", "delete that bai");
 		}
-		response.sendRedirect("http://localhost:8080/dien_thoai3/listproduct");
+		response.sendRedirect("http://localhost:8888/dien_thoai3/listproduct");
 	}
 
 

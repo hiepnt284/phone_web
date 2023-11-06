@@ -82,7 +82,7 @@
 		Ngày ra mắt:<input type="date" name="releasedate" value="${c.releaseDate}"/><br/><br/>
 		Mô tả:<input type="text" name="describe" value="${c.describe}"/><br/><br/>
 		<center>
-		<a class="button" href="http://localhost:8080/dien_thoai3/listproduct">Back</a>
+		<a class="button" href="http://localhost:8888/dien_thoai3/listproduct">Back</a>
 		<input type="submit" value="Update"/>
 		<center/>
 	</form>

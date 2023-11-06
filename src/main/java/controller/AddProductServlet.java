@@ -59,10 +59,10 @@ public class AddProductServlet extends HttpServlet {
             	part.write(path + File.separator+fileName);
             	
             	session.setAttribute("succMsg", "them thanh cong");
-            	response.sendRedirect("http://localhost:8080/dien_thoai3/listproduct");
+            	response.sendRedirect("http://localhost:8888/dien_thoai3/listproduct");
             }else {
             	session.setAttribute("failedMsg", "them that bai");
-            	response.sendRedirect("http://localhost:8080/dien_thoai3/listproduct");
+            	response.sendRedirect("http://localhost:8888/dien_thoai3/listproduct");
             }
              
 		} catch (Exception e) {
