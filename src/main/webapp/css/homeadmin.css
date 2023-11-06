@@ -1,0 +1,35 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background-color: gray;
+}
+.header {
+	display: flex;
+	padding: 20px;
+	background-color: rgb(255, 128, 0);
+	align-items: center;
+	color: white;
+}
+
+.logo{
+	height: 50px;
+	width: auto;
+}
+.login{
+	margin-left: auto;
+}
+
+		
+.menuu {
+	margin-top: 200px;
+	text-align: center;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+
+.icon-feature{
+	font-size: 50px;
+}

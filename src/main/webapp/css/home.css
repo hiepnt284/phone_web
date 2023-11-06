@@ -1,39 +1,23 @@
 *{
+	margin: 0;
 	padding: 0;
-	margin:0;
 }
-header {
-	background-color: rgb(255, 128, 128);
+
+.header {
+	display: flex;
 	padding: 20px;
-	display: flex;
-	justify-content: space-between;
+	background-color: rgb(255, 128, 0);
 	align-items: center;
+	color: white;
 }
 
-.logo img {
+.logo{
 	height: 50px;
+	width: auto;
 }
-
-.logo h1 {
-	margin-left: 10px;
-	font-size: 24px;
+.login{
+	margin-left: auto;
 }
-
-nav ul {
-	list-style-type: none;
-	display: flex;
-}
-
-nav ul li {
-	margin-left: 20px;
-}
-
-nav ul li a {
-	text-decoration: none;
-	color: #333;
-	font-weight: bold;
-}
-
 .banner {
 	background-image: url("../images/banner1.jpg");
 	background-size: cover;
@@ -57,15 +41,6 @@ nav ul li a {
 .banner-content p {
 	font-size: 18px;
 	margin-bottom: 30px;
-}
-
-.btn {
-	display: inline-block;
-	padding: 10px 20px;
-	background-color: #ff5e15;
-	color: #fff;
-	text-decoration: none;
-	font-weight: bold;
 }
 
 .main-menu ul {

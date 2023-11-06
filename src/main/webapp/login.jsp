@@ -54,6 +54,10 @@
         	<h2 style="color:red">${failedMsg}</h2>
         	<c:remove var="failedMsg" scope="session"/>
         </c:if>
+        <c:if test="${not empty succMsg }">
+        	<h2 style="color:green">${succMsg}</h2>
+        	<c:remove var="succMsg" scope="session"/>
+        </c:if>
         <form id="login-form" action="login" method="post">
             <div class="form-group">
                 <label for="username">Username:</label>
