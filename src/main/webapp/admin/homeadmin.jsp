@@ -13,7 +13,7 @@
 </head>
 <body>
 	<div class="header">
-		<img class="logo" alt="logo" src="../images/logo.png">
+		<img class="logo" alt="logo" src="../images/mobile_logo.jpg">
 		
 		<div class="login">
 			<c:if test="${not empty user }">

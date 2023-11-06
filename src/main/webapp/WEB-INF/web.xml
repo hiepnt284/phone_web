@@ -99,4 +99,14 @@
     <servlet-name>HomeServlet</servlet-name>
     <url-pattern>/home</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DetailProductServlet</display-name>
+    <servlet-name>DetailProductServlet</servlet-name>
+    <servlet-class>controller.DetailProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DetailProductServlet</servlet-name>
+    <url-pattern>/detailproduct</url-pattern>
+  </servlet-mapping>
 </web-app>

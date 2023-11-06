@@ -5,19 +5,51 @@
 
 .header {
 	display: flex;
+	justify-content: space-around;
 	padding: 20px;
 	background-color: rgb(255, 128, 0);
 	align-items: center;
+}
+.header a{
+	text-decoration: none;
 	color: white;
 }
-
+.logo-container{
+	display: flex;
+	align-items: center;
+	font-size: 30px;
+	
+}
+.logo-container:hover{
+	cursor: pointer;
+	color: rgb(255, 0, 0);
+}
 .logo{
-	height: 100px;
-	width: auto;
+	font-size: 40px;
 }
-.login{
-	margin-left: auto;
+.search-container {
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
 }
+.search{
+	padding: 14px;
+	background-color: rgb(255, 128, 0);
+	border-radius: 0 5px 5px 0;
+	border: 2px solid rgb(255, 255, 255);
+}
+.search:hover{
+	cursor: pointer;
+	color: white;
+}
+#search-input {
+	width: 500px;
+	padding: 10px;
+	border: 2px solid rgb(255, 255, 255);
+	border-radius: 5px 0 0 5px;
+}
+
 .banner {
 	background-image: url("../images/banner1.jpg");
 	background-size: cover;
@@ -30,7 +62,7 @@
 
 .banner-content {
 	text-align: center;
-	color: white;
+	color: rgb(255, 128, 0);
 }
 
 .banner-content h2 {
@@ -43,22 +75,27 @@
 	margin-bottom: 30px;
 }
 
-.main-menu ul {
+.main-menu {
 	list-style-type: none;
 	display: flex;
-	justify-content: center;
+	justify-content: space-around;
+	background-color: rgb(255, 128, 0);
+	padding-bottom: 10px;
 }
 
-.main-menu ul li {
-	margin: 0 10px;
-	padding: 20px;
-}
 
-.main-menu ul li a {
+.main-menu  a {
 	font-size: 20px;
 	text-decoration: none;
-	color: #333;
+	color: white;
 	font-weight: bold;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+.main-menu  a:hover {
+	background-color: white;
+	color: rgb(255, 128, 0);
 }
 
 .featured-products {
@@ -76,7 +113,6 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	gap: 20px;
-	width: 100vw;
 	
 }
 
@@ -102,44 +138,12 @@
 }
 
 
-.search-section {
-	text-align: center;
-}
 
-.search-section h2 {
-	font-size: 24px;
-	margin-bottom: 20px;
-}
 
-.search-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-#search-input {
-	width: 300px;
-	padding: 10px;
-	border: 1px solid #ccc;
-	border-radius: 5px 0 0 5px;
-}
-
-#search-button {
-	padding: 10px 20px;
-	background-color: #333;
-	color: #fff;
-	border: none;
-	border-radius: 0 5px 5px 0;
-	cursor: pointer;
-}
-
-#search-button:hover {
-	background-color: #555;
-}
 
 footer {
 	margin-top: 20px;
-	background-color: #f2f2f2;
+	background-color: rgb(255, 128, 0);
 	padding: 20px 0;
 	text-align: center;
 }
@@ -150,6 +154,7 @@ footer {
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
+	color: white;
 }
 
 .contact-info,
@@ -175,14 +180,14 @@ ul li {
 }
 
 ul li a {
-	color: #333;
 	text-decoration: none;
+	color: white;
 }
 
 .fa-facebook,
 .fa-twitter,
 .fa-instagram {
 	font-size: 20px;
-	color: #333;
 	margin-right: 10px;
+	color: white;
 }
