@@ -45,6 +45,19 @@
         .error-message {
             color: #ff0000;
         }
+        
+        a{
+        	background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .login{
+        margin-bottom:10px
+        }
     </style>
 </head>
 <body>
@@ -53,6 +66,9 @@
         <c:if test="${not empty succMsg }">
         	<h3 style="color:green">${succMsg}</h3>
         	<c:remove var="succMsg" scope="session"/>
+        	<div class="login">
+        	<a href="login.jsp">Đăng nhập ngay</a>
+        	</div>
         </c:if>
         <c:if test="${not empty failedMsg }">
         	<h3 style="color:red">${failedMsg}</h3>
@@ -62,6 +78,10 @@
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="fullname">Fullname:</label>
+                <input type="text" id="fullname" name="fullname" required>
             </div>
             <div class="form-group">
                 <label for="phone">Phone Number:</label>

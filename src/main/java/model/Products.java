@@ -9,33 +9,36 @@ public class Products {
 	private Date releaseDate;
 	private String describe,image;
 	private Category category;
+	private String status;
 	
 	public Products() {
 	}
 	
 	
 	
-	public Products(int id, String name, double price, Date releaseDate, String describe) {
+	public Products(int id, String name, double price, Date releaseDate, String describe, String status) {
 		this.id = id;
 		this.name = name;
 		this.price = price;
 		this.releaseDate = releaseDate;
 		this.describe = describe;
+		this.status = status;
 	}
 
 
 
-	public Products(String name, double price, Date releaseDate, String describe, String image, Category category) {
+	public Products(String name, double price, Date releaseDate, String describe, String image, Category category, String status) {
 		this.name = name;
 		this.price = price;
 		this.releaseDate = releaseDate;
 		this.describe = describe;
 		this.image = image;
 		this.category = category;
+		this.status = status;
 	}
 
 	public Products(int id, String name, double price, Date releaseDate, String describe, String image,
-			Category category) {
+			Category category, String status) {
 		this.id = id;
 		this.name = name;
 		this.price = price;
@@ -43,6 +46,7 @@ public class Products {
 		this.describe = describe;
 		this.image = image;
 		this.category = category;
+		this.status = status;
 	}
 
 	public int getId() {
@@ -101,11 +105,24 @@ public class Products {
 		this.category = category;
 	}
 
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "Products [id=" + id + ", name=" + name + ", price=" + price + ", releaseDate=" + releaseDate
-				+ ", describe=" + describe + ", image=" + image + ", category=" + category + "]";
+				+ ", describe=" + describe + ", image=" + image + ", category=" + category + ", status=" + status + "]";
 	}
+
+
+
 	
 	
 }

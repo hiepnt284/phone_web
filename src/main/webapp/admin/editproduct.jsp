@@ -31,6 +31,7 @@
 
         input[type="text"],
         input[type="date"],
+        input[type="number"],
         select {
             width: 90%;
             padding: 10px;
@@ -81,6 +82,19 @@
 		Giá sản phẩm:<input type="number" name="price" value="${c.price}"/><br/><br/>
 		Ngày ra mắt:<input type="date" name="releasedate" value="${c.releaseDate}"/><br/><br/>
 		Mô tả:<input type="text" name="describe" value="${c.describe}"/><br/><br/>
+		Trạng thái:
+		<select name="status">
+		    <c:forEach var="statusOption" items="${['active', 'inactive']}">
+		        <option value="${statusOption}" 
+		            <c:if test="${c.status eq statusOption}">
+		                selected="selected"
+		            </c:if>
+		        >
+		            ${statusOption}
+		        </option>
+		    </c:forEach>
+		</select>
+
 		<center>
 		<a class="button" href="http://localhost:8080/dien_thoai3/listproduct">Back</a>
 		<input type="submit" value="Update"/>

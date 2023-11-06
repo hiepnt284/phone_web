@@ -25,7 +25,8 @@ public class ProductDAO extends dbContext{
 						rs.getDate("releasedate"), 
 						rs.getString("describe"),
 						rs.getString("image"),
-						cdao.getCategoryById(rs.getInt("cid")));
+						cdao.getCategoryById(rs.getInt("cid")),
+						rs.getString("status"));
 				
 				list.add(p);
 			}
@@ -38,8 +39,8 @@ public class ProductDAO extends dbContext{
 	public boolean addProduct(Products product) {
 		try {
 			String sql = "insert into Products"
-					+ "(name,price,releasedate,describe,image,cid) "
-					+ "values(?,?,?,?,?,?)";
+					+ "(name,price,releasedate,describe,image,cid,status) "
+					+ "values(?,?,?,?,?,?,?)";
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, product.getName());
 			st.setDouble(2, product.getPrice());
@@ -47,6 +48,7 @@ public class ProductDAO extends dbContext{
 			st.setString(4, product.getDescribe());
 			st.setString(5, product.getImage());
 			st.setInt(6, product.getCategory().getId());
+			st.setString(7, product.getStatus());
 			int i = st.executeUpdate();
 			if(i==1) {
 				return true;
@@ -89,7 +91,8 @@ public class ProductDAO extends dbContext{
 						rs.getDate("releasedate"), 
 						rs.getString("describe"),
 						rs.getString("image"),
-						cdao.getCategoryById(rs.getInt("cid")));
+						cdao.getCategoryById(rs.getInt("cid")),
+						rs.getString("status"));
 				return p;
 			}
 		} catch (SQLException e) {
@@ -100,14 +103,15 @@ public class ProductDAO extends dbContext{
 	}
 	
 	public boolean update(Products p) {
-		String sql = "update Products set name=?,price=?,releasedate=?,describe=? where id=?";
+		String sql = "update Products set name=?,price=?,releasedate=?,describe=?,status=? where id=?";
 		try {
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, p.getName());
 			st.setDouble(2, p.getPrice());
 			st.setDate(3, p.getReleaseDate());
 			st.setString(4, p.getDescribe());
-			st.setInt(5, p.getId());
+			st.setString(5, p.getStatus());
+			st.setInt(6, p.getId());
 			
 			int i=st.executeUpdate();
 			if(i==1) {

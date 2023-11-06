@@ -23,15 +23,16 @@ public class SignUpServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			String username = request.getParameter("username");
+			String fullname = request.getParameter("fullname");
 			String password = request.getParameter("password");
 			String phone = request.getParameter("phone");
-			User u = new User(username,password,phone);
+			User u = new User(username,fullname,password,phone);
 			HttpSession session = request.getSession();
 			UserDAO udao = new UserDAO();
 			if(udao.signUp(u)) {
-				session.setAttribute("succMsg", "dang ky thanh cong");
+				session.setAttribute("succMsg", "Đăng ký thành công");
 			}else {
-				session.setAttribute("failedMsg", "dang ky that bai");
+				session.setAttribute("failedMsg", "Username đã tồn tại");
 			}
 			response.sendRedirect("signup.jsp");
 		} catch (Exception e) {

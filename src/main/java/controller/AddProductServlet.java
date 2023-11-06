@@ -38,13 +38,14 @@ public class AddProductServlet extends HttpServlet {
             Date releasedate = Date.valueOf(request.getParameter("releasedate"));
             String describe = request.getParameter("describe");
             int cid = Integer.parseInt(request.getParameter("cid"))  ;
+            String status = request.getParameter("status");
             Part part = request.getPart("img");
             String fileName = part.getSubmittedFileName();
             System.out.println(fileName);
             
             CategoryDAO cdao = new CategoryDAO();
             
-            Products p = new Products(name,price,releasedate,describe,fileName,cdao.getCategoryById(cid));
+            Products p = new Products(name,price,releasedate,describe,fileName,cdao.getCategoryById(cid),status);
             
             ProductDAO dao = new ProductDAO();
             

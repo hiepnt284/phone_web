@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
 				User u = udao.login(username, password);
 				if(u!=null) {
 					session.setAttribute("user", u);
-					response.sendRedirect("home.jsp");
+					response.sendRedirect("http://localhost:8080/dien_thoai3/home");
 				}else {
 					session.setAttribute("failedMsg", "username or password sai");
 					response.sendRedirect("login.jsp");

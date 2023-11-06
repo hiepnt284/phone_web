@@ -37,8 +37,9 @@ public class EditProductServlet extends HttpServlet {
 	        double price = Double.parseDouble(request.getParameter("price"));
             Date releasedate = Date.valueOf(request.getParameter("releasedate"));
             String describe = request.getParameter("describe");
+            String status = request.getParameter("status");
 	        ProductDAO dao = new ProductDAO();
-			Products p = new Products(id, name, price, releasedate, describe);
+			Products p = new Products(id, name, price, releasedate, describe, status);
 			boolean f=dao.update(p);
 			HttpSession session = request.getSession();
 			if(f) {

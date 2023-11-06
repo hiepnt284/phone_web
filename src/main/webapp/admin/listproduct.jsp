@@ -94,6 +94,7 @@
                 <th>Ngày ra mắt</th>
                 <th>Mô tả</th>
                 <th>Danh mục</th>
+                <th>Trạng thái</th>
                 <th>Action</th>
             </tr>
             <c:forEach items="${requestScope.list}" var="c">
@@ -106,6 +107,7 @@
                     <td>${c.releaseDate}</td>
                     <td>${c.describe}</td>
                     <td>${c.category.name}</td>
+                    <td>${c.status}</td>
                     <td class="action-buttons">
                         <a class="button" href="http://localhost:8080/dien_thoai3/editproduct?id=${id}">Update</a>
                         <a class="button" href="#" onclick="doDelete('${id}')">Delete</a>

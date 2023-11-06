@@ -12,7 +12,7 @@
 }
 
 .logo{
-	height: 50px;
+	height: 100px;
 	width: auto;
 }
 .login{
@@ -73,12 +73,15 @@
 
 .product-container {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 	gap: 20px;
+	width: 100vw;
+	
 }
 
 .product-item {
-	width: 200px;
+	width: 300px;
 	padding: 10px;
 	border: 1px solid black;
 	border-radius: 10px;

@@ -20,7 +20,7 @@
 			<c:if test="${not empty user }">
 				<a href="" class="btn btn-success">
 				<i class="fa-solid fa-user"></i>
-				${user.username}
+				${user.fullname}
 				</a>
 				<a data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary">
 				<i class="fa-solid fa-right-to-bracket"></i>
@@ -72,10 +72,10 @@
 
 	<nav class="main-menu">
 		<ul>
-			<li><a href="#">Điện thoại di động</a></li>
-			<li><a href="#">Máy tính bảng</a></li>
-			<li><a href="#">Laptop</a></li>
-			<li><a href="#">Phụ kiện</a></li>
+			<c:forEach items="${requestScope.listc }" var="c">
+			<li><a href="products?cid=${c.id}">${c.name}</a></li>
+			</c:forEach>
+			
 		</ul>
 	</nav>
 
@@ -116,26 +116,14 @@
 	<section class="featured-products">
 		<h2>Danh sách sản phẩm</h2>
 		<div class="product-container">
+		<c:forEach items="${requestScope.listp }" var="p">
 			<div class="product-item">
-				<img src="images/ip1.jpg" alt="Sản phẩm 1" />
-				<h3>Sản phẩm 1</h3>
-				<p class="price">$99.99</p>
+				<img style="width: 150px; height: auto" alt="anh" src="images/${p.image }">
+				<h3>${p.name}</h3>
+				<p class="price">${p.price }</p>
 			</div>
-			<div class="product-item">
-				<img src="images/ip1.jpg" alt="Sản phẩm 2" />
-				<h3>Sản phẩm 2</h3>
-				<p class="price">$49.99</p>
-			</div>
-			<div class="product-item">
-				<img src="images/ip1.jpg" alt="Sản phẩm 3" />
-				<h3>Sản phẩm 3</h3>
-				<p class="price">$79.99</p>
-			</div>
-			<div class="product-item">
-				<img src="images/ip1.jpg" alt="Sản phẩm 3" />
-				<h3>Sản phẩm 3</h3>
-				<p class="price">$79.99</p>
-			</div>
+		</c:forEach>
+			
 		</div>
 	</section>
 	<footer>

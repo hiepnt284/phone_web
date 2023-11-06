@@ -3,6 +3,7 @@ package model;
 public class User {
 	private int id;
 	private String username;
+	private String fullname;
 	private String phone;
 	private String password;
 	private String address;
@@ -11,15 +12,17 @@ public class User {
 	public User() {
 	}
 
-	public User(String username, String password, String phone) {
+	public User(String username, String fullname, String password, String phone) {
 		this.username = username;
+		this.fullname = fullname;
 		this.password = password;
 		this.phone = phone;
 	}
 
-	public User(int id, String username, String phone, String password, String address) {
+	public User(int id, String username,String fullname, String phone, String password, String address) {
 		this.id = id;
 		this.username = username;
+		this.fullname = fullname;
 		this.phone = phone;
 		this.password = password;
 		this.address = address;
@@ -39,6 +42,14 @@ public class User {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+	
+	public String getFullname() {
+		return fullname;
+	}
+
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
 	}
 
 	public String getPhone() {

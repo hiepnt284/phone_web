@@ -8,11 +8,12 @@ import model.User;
 public class UserDAO extends dbContext{
 	public boolean signUp(User u) {
 		try {
-			String sql = "insert into Users(username,password,phone) values(?,?,?)";
+			String sql = "insert into Users(username,fullname,password,phone) values(?,?,?,?)";
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, u.getUsername());
-			st.setString(2, u.getPassword());
-			st.setString(3, u.getPhone());
+			st.setString(2, u.getFullname());
+			st.setString(3, u.getPassword());
+			st.setString(4, u.getPhone());
 			int i = st.executeUpdate();
 			if(i==1) {
 				return true;
@@ -35,6 +36,7 @@ public class UserDAO extends dbContext{
 			if(rs.next()) {
 				u = new User(rs.getInt("id"),
 						rs.getString("username"),
+						rs.getString("fullname"),
 						rs.getString("phone"),
 						rs.getString("password"),
 						rs.getString("address"));

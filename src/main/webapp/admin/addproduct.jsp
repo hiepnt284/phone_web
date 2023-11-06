@@ -105,6 +105,14 @@
 				
 		</select>
 		<br><br>
+		Trạng thái:
+		<select name="status">
+				<option  selected="selected">---</option>
+				<option value="active">active</option>
+				<option value="inactive">inactive</option>
+				
+		</select>
+		<br><br>
 		Ảnh:<input type="file" name="img">
 		<br>
 		<br>
