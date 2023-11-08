@@ -109,4 +109,24 @@
     <servlet-name>DetailProductServlet</servlet-name>
     <url-pattern>/detailproduct</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddToCartServlet</display-name>
+    <servlet-name>AddToCartServlet</servlet-name>
+    <servlet-class>controller.AddToCartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddToCartServlet</servlet-name>
+    <url-pattern>/addtocart</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ShowCartServlet</display-name>
+    <servlet-name>ShowCartServlet</servlet-name>
+    <servlet-class>controller.ShowCartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowCartServlet</servlet-name>
+    <url-pattern>/showcart</url-pattern>
+  </servlet-mapping>
 </web-app>

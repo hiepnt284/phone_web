@@ -8,10 +8,66 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>User Home</title>
 <link rel="stylesheet" type="text/css" href="css/home.css">
-<%@include file="component/allcss.jsp" %>
+<%@include file="component/allcss.jsp"%>
 </head>
 <body>
-	<%@include file="component/header.jsp" %>
+
+	<c:if test="${not empty succMsg }">
+		<div class="toast" role="alert" aria-live="assertive"
+			aria-atomic="true">
+			<div class="toast-header">
+				<strong class="me-auto">Thông báo</strong>
+				<button type="button" class="btn-close" data-bs-dismiss="toast"
+					aria-label="Close"></button>
+			</div>
+			<div class="toast-body">
+				${succMsg}
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			$(document).ready(
+					function() {
+						var myToast = new bootstrap.Toast(document
+								.querySelector('.toast'));
+						myToast.show(); 
+
+						$('.btn-close').on('click', function() {
+							myToast.hide();
+						});
+					});
+		</script>
+		<c:remove var="succMsg" scope="session" />
+	</c:if>
+	<c:if test="${not empty failedMsg }">
+		<div class="toast" role="alert" aria-live="assertive"
+			aria-atomic="true">
+			<div class="toast-header">
+				<strong class="me-auto">Thông báo</strong>
+				<button type="button" class="btn-close" data-bs-dismiss="toast"
+					aria-label="Close"></button>
+			</div>
+			<div class="toast-body">
+				${failedMsg}
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			$(document).ready(
+					function() {
+						var myToast = new bootstrap.Toast(document
+								.querySelector('.toast'));
+						myToast.show(); 
+
+						$('.btn-close').on('click', function() {
+							myToast.hide();
+						});
+					});
+		</script>
+		<c:remove var="failedMsg" scope="session" />
+	</c:if>
+
+	<%@include file="component/header.jsp"%>
 	<div class="banner">
 		<div class="banner-content">
 			<h2>Chào mừng đến với MOBILE SHOP</h2>
@@ -20,49 +76,33 @@
 		</div>
 	</div>
 
-
-
-	<section class="featured-products">
-		<h2>Sản phẩm nổi bật</h2>
-		<div class="product-container">
-			<div class="product-item">
-				<img src="images/ip1.jpg" alt="Sản phẩm 1" />
-				<h3>Sản phẩm 1</h3>
-				<p class="price">$99.99</p>
-			</div>
-			<div class="product-item">
-				<img src="images/ip1.jpg" alt="Sản phẩm 2" />
-				<h3>Sản phẩm 2</h3>
-				<p class="price">$49.99</p>
-			</div>
-			<div class="product-item">
-				<img src="images/ip1.jpg" alt="Sản phẩm 3" />
-				<h3>Sản phẩm 3</h3>
-				<p class="price">$79.99</p>
-			</div>
-			<div class="product-item">
-				<img src="images/ip1.jpg" alt="Sản phẩm 3" />
-				<h3>Sản phẩm 3</h3>
-				<p class="price">$79.99</p>
-			</div>
-		</div>
-	</section>
-
 	<section class="featured-products">
 		<h2>Danh sách sản phẩm</h2>
 		<div class="product-container">
-		<c:forEach items="${requestScope.listp }" var="p">
-			<c:set var="id" value="${p.id}" />
-			<div class="product-item">
-				<img style="width: 150px; height: auto" alt="anh" src="images/${p.image }">
-				<h3>${p.name}</h3>
-				<p class="price">${p.price }</p>
-				<a href="http://localhost:8080/dien_thoai3/detailproduct?id=${id}" class="btn btn-success">Mua</a>
-			</div>
-		</c:forEach>
-			
+			<c:forEach items="${requestScope.listp }" var="p">
+				<c:set var="id" value="${p.id}" />
+				<div class="product-item">
+					<img style="width: 150px; height: auto" alt="anh"
+						src="images/${p.image }">
+					<h3>${p.name}</h3>
+					<p class="price">${p.price }</p>
+					<c:if test="${not empty user }">
+						<a
+							href="http://localhost:8080/dien_thoai3/addtocart?uid=${user.id}&pid=${id }"
+							class="btn btn-success"> Add to cart </a>
+
+					</c:if>
+					<c:if test="${empty user }">
+						<a href="login.jsp" class="btn btn-success"> Add to cart </a>
+					</c:if>
+
+					<a href="http://localhost:8080/dien_thoai3/detailproduct?id=${id}"
+						class="btn btn-success">Mua</a>
+				</div>
+			</c:forEach>
+
 		</div>
 	</section>
-	<%@include file="component/footer.jsp" %>
+	<%@include file="component/footer.jsp"%>
 </body>
 </html>

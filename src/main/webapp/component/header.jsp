@@ -12,6 +12,13 @@
 			<input type="text" id="search-input" placeholder="Tìm kiếm sản phẩm" />
 			<i class="fa-solid fa-magnifying-glass search"></i>
 		</div>
+		<c:if test="${not empty user }">
+		<a class="cart" href="http://localhost:8080/dien_thoai3/showcart?uid=${user.id }"><i class="fa-solid fa-cart-shopping cart-icon"></i>${requestScope.count}</a>
+		</c:if>
+		<c:if test="${empty user }">
+		<a class="cart" href="login.jsp"><i class="fa-solid fa-cart-shopping cart-icon"></i></a>
+		</c:if>
+		
 		
 		<div class="login">
 			<c:if test="${not empty user }">
