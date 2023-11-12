@@ -1,99 +1,116 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page isELIgnored="false"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Giỏ hàng</title>
-<style>
-body {
-	font-family: Arial, sans-serif;
-	margin: 0;
-	padding: 0;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
 
-.button {
-	display: inline-block;
-	padding: 10px 20px;
-	text-align: center;
-	text-decoration: none;
-	cursor: pointer;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	background-color: #007bff;
-	color: white;
-}
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-.button:hover {
-	background-color: #00b8ff;
-}
+        .product {
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-h1 {
-	text-align: center;
-	background-color: #007bff;
-	color: #fff;
-	padding: 30px 0;
-	margin: 0 0 30px 0;
-}
+        .product img {
+            max-width: 50px;
+            max-height: 50px;
+            margin-right: 10px;
+        }
 
-table {
-	margin-top: 20px;
-	width: 80%;
-	border-collapse: collapse;
-	background-color: #fff;
-}
+        .product-info {
+            flex-grow: 1;
+        }
 
-table, th, td {
-	border: 1px solid #ccc;
-}
+        .quantity {
+            display: flex;
+            align-items: center;
+        }
 
-th, td {
-	padding: 10px;
-	text-align: left;
-}
+        .quantity input {
+            width: 30px;
+            margin: 0 10px;
+        }
 
-th {
-	background-color: #007bff;
-	color: #fff;
-}
+        .total-price {
+            font-weight: bold;
+        }
 
-.action-buttons {
-	text-align: center;
-}
-</style>
+        .action-buttons {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            margin-right: 10px;
+        }
+
+        .button:hover {
+            background-color: #00b8ff;
+        }
+    </style>
 </head>
 <body>
-	<h1>Giỏ hàng</h1>
-	<center>
-		<table>
-			<tr>
-				<th>Tên</th>
-				<th>Đơn Giá</th>
-				<th>Số lượng</th>
-				<th>Tổng tiền</th>
-			</tr>
+    <div class="container">
+        <h1>Giỏ hàng</h1>
 
-			<c:set var="totalPrice" value="0" />
-			<c:forEach items="${requestScope.list}" var="c">
-				<tr>
-					<td>${c.name}</td>
-					<td>${c.price}</td>
-					<td>${c.quantity}</td>
-					<td>${c.price * c.quantity}</td>
-				</tr>
-				<c:set var="totalPrice"
-					value="${totalPrice + (c.price * c.quantity)}" />
-			</c:forEach>
-			<tr>
-				<td>Tổng cộng</td>
-				<td></td>
-				<td></td>
-				<td>${totalPrice}</td>
-			</tr>
+        <c:set var="totalPrice" value="0" />
+        <c:forEach items="${requestScope.list}" var="c">
+            <div class="product">
+                <div class="product-info">
+                    
+                    <span>${c.name}</span>
+                </div>
+                <div class="quantity">
+                    <form action="http://localhost:8080/dien_thoai3/editcart" method="post">
+                        <input type="hidden" name="uid" value="${c.uid}">
+						<input type="hidden" name="pid" value="${c.pid}">
+						<button type="submit" name="action" value="decrease">-</button>
+                        <input type="number" name="quantity" value="${c.quantity}">
+                        <button type="submit" name="action" value="increase">+</button>
+                        <button type="submit" name="action" value="remove">Xóa</button>
+                    </form>
+                </div>
+                <div class="total-price">${c.price * c.quantity}VNĐ</div>
+            </div>
+            <c:set var="totalPrice" value="${totalPrice + (c.price * c.quantity)}" />
+        </c:forEach>																											
 
-		</table>
-	</center>
+        <div class="action-buttons">
+            <a href="http://localhost:8080/dien_thoai3/home" class="button">Tiếp tục mua sắm</a>
+            <a href="#" class="button">Thanh toán</a>
+        </div>
+
+        <div class="total-price">Tổng cộng: ${totalPrice} VNĐ</div>
+    </div>
 </body>
 </html>

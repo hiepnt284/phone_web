@@ -80,6 +80,36 @@ public class CartDAO extends dbContext{
 		return false;
 	}
 	
+	public boolean minusOne(Cart cart) {
+		try {
+			String sql = "update Carts set quantity = quantity - 1 where uid =? and pid=?";
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setInt(1, cart.getUid());
+			st.setInt(2, cart.getPid());
+			if(st.executeUpdate()==1) {
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public boolean remove(Cart cart) {
+		try {
+			String sql = "delete from Carts where uid =? and pid=?";
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setInt(1, cart.getUid());
+			st.setInt(2, cart.getPid());
+			if(st.executeUpdate()==1) {
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
 	public List<Cart> getAll(int uid){
 		List<Cart> list = new ArrayList<>();
 		String sql = "select * from Carts where uid = ?";

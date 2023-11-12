@@ -129,4 +129,14 @@
     <servlet-name>ShowCartServlet</servlet-name>
     <url-pattern>/showcart</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditCartServlet</display-name>
+    <servlet-name>EditCartServlet</servlet-name>
+    <servlet-class>controller.EditCartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditCartServlet</servlet-name>
+    <url-pattern>/editcart</url-pattern>
+  </servlet-mapping>
 </web-app>

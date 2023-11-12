@@ -85,7 +85,8 @@
 					<img style="width: 150px; height: auto" alt="anh"
 						src="images/${p.image }">
 					<h3>${p.name}</h3>
-					<p class="price">${p.price }</p>
+					<p class="price" style="text-decoration: line-through;">${p.price*2 }VNĐ</p>
+					<p class="price">${p.price }VNĐ</p>
 					<c:if test="${not empty user }">
 						<a
 							href="http://localhost:8080/dien_thoai3/addtocart?uid=${user.id}&pid=${id }"
