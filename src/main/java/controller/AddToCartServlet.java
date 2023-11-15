@@ -28,10 +28,10 @@ public class AddToCartServlet extends HttpServlet {
 				boolean f = dao.addOne(existCart);
 	            if(f) {
 	            	session.setAttribute("succMsg", "da them vao gio hang");
-	            	response.sendRedirect("http://localhost:8080/dien_thoai3/home");
+	            	response.sendRedirect(request.getHeader("referer"));
 	            }else {
 	            	session.setAttribute("failedMsg", "co gi do sai sai");
-	            	response.sendRedirect("http://localhost:8080/dien_thoai3/home");
+	            	response.sendRedirect(request.getHeader("referer"));
 	            }
 			}else {
 				Cart cart = new Cart(uid,pid,1);
@@ -41,7 +41,7 @@ public class AddToCartServlet extends HttpServlet {
 	            	response.sendRedirect(request.getHeader("referer"));
 	            }else {
 	            	session.setAttribute("failedMsg", "san pham da co trong gio hang");
-	            	response.sendRedirect("http://localhost:8080/dien_thoai3/home");
+	            	response.sendRedirect(request.getHeader("referer"));
 	            }
 			}       
 		} catch (Exception e) {

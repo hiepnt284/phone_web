@@ -1,46 +1,81 @@
 package model;
 
-import java.io.Serializable;
 
-public class OrderDetail implements Serializable{
-	private int id;
-	private Products product;
+public class OrderDetail {
+	private int pid;
+	private String name;
+	private String image;
+	private int oid;
 	private int quantity;
 	private double price;
-	public OrderDetail(int id, Products product, int quantity, double price) {
-		super();
-		this.id = id;
-		this.product = product;
+	
+	public OrderDetail() {
+	}
+
+	public OrderDetail(int pid, int oid, int quantity, double price) {
+		this.pid = pid;
+		this.oid = oid;
 		this.quantity = quantity;
 		this.price = price;
 	}
-	public OrderDetail() {
-		super();
+
+	public OrderDetail(int pid, String name, String image, int oid, int quantity, double price) {
+		this.pid = pid;
+		this.name = name;
+		this.image = image;
+		this.oid = oid;
+		this.quantity = quantity;
+		this.price = price;
 	}
-	public int getId() {
-		return id;
+
+	public int getPid() {
+		return pid;
 	}
-	public void setId(int id) {
-		this.id = id;
+
+	public void setPid(int pid) {
+		this.pid = pid;
 	}
-	public Products getProduct() {
-		return product;
+
+	public int getOid() {
+		return oid;
 	}
-	public void setProduct(Products product) {
-		this.product = product;
+
+	public void setOid(int oid) {
+		this.oid = oid;
 	}
+
 	public int getQuantity() {
 		return quantity;
 	}
+
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+
 	public double getPrice() {
 		return price;
 	}
+
 	public void setPrice(double price) {
 		this.price = price;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+	
 	
 	
 }

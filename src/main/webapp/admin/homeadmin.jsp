@@ -72,7 +72,7 @@
 	        <i class="fa-solid fa-list-ul icon-feature"></i>
 	        <h2>Danh Sách Sản Phẩm</h2>
         </a>
-        <a href="listorder.jsp" class="btn btn-primary">
+        <a href="http://localhost:8080/dien_thoai3/listorder" class="btn btn-primary">
 	        <i class="fa-solid fa-cubes icon-feature" ></i>
 	        <h2>Danh Sách Đơn Hàng</h2>
         </a>

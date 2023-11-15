@@ -10,6 +10,18 @@
 <link rel="stylesheet" type="text/css" href="css/home.css">
 <%@include file="component/allcss.jsp"%>
 </head>
+<style>
+.activee {
+	background-color: white;
+	color: rgb(255, 128, 0) !important;
+}
+.search-button {
+	border: none;
+	background: none;
+	cursor: pointer;
+	padding: 0;
+}
+</style>
 <body>
 
 	<c:if test="${not empty succMsg }">
@@ -20,9 +32,7 @@
 				<button type="button" class="btn-close" data-bs-dismiss="toast"
 					aria-label="Close"></button>
 			</div>
-			<div class="toast-body">
-				${succMsg}
-			</div>
+			<div class="toast-body">${succMsg}</div>
 		</div>
 
 		<script type="text/javascript">
@@ -30,7 +40,7 @@
 					function() {
 						var myToast = new bootstrap.Toast(document
 								.querySelector('.toast'));
-						myToast.show(); 
+						myToast.show();
 
 						$('.btn-close').on('click', function() {
 							myToast.hide();
@@ -47,9 +57,7 @@
 				<button type="button" class="btn-close" data-bs-dismiss="toast"
 					aria-label="Close"></button>
 			</div>
-			<div class="toast-body">
-				${failedMsg}
-			</div>
+			<div class="toast-body">${failedMsg}</div>
 		</div>
 
 		<script type="text/javascript">
@@ -57,7 +65,7 @@
 					function() {
 						var myToast = new bootstrap.Toast(document
 								.querySelector('.toast'));
-						myToast.show(); 
+						myToast.show();
 
 						$('.btn-close').on('click', function() {
 							myToast.hide();
@@ -68,13 +76,16 @@
 	</c:if>
 
 	<%@include file="component/header.jsp"%>
-	<div class="banner">
-		<div class="banner-content">
-			<h2>Chào mừng đến với MOBILE SHOP</h2>
-			<p>Mua sắm trực tuyến với hàng ngàn sản phẩm đa dạng và chất
-				lượng.</p>
+	<c:if test="${empty requestScope.cid and empty requestScope.key}">
+		<div class="banner">
+			<div class="banner-content">
+				<h2>Chào mừng đến với MOBILE SHOP</h2>
+				<p>Mua sắm trực tuyến với hàng ngàn sản phẩm đa dạng và chất
+					lượng.</p>
+			</div>
 		</div>
-	</div>
+	</c:if>
+
 
 	<section class="featured-products">
 		<h2>Danh sách sản phẩm</h2>

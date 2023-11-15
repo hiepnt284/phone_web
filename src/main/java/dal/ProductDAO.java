@@ -1,5 +1,6 @@
 package dal;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -122,5 +123,62 @@ public class ProductDAO extends dbContext{
 			e.printStackTrace();
 		}
 		return false;
+	}
+	
+	public List<Products> getProductsByCid(int cid){
+		List<Products> list = new ArrayList<>();
+		String sql = "select * from Products where cid = ?";
+		try {
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setInt(1, cid);
+			ResultSet rs = st.executeQuery();
+			cdao = new CategoryDAO();
+			while(rs.next()) {
+				Products p = new Products(
+						rs.getInt("id"),
+						rs.getString("name"), 
+						rs.getDouble("price"),
+						rs.getDate("releasedate"), 
+						rs.getString("describe"),
+						rs.getString("image"),
+						cdao.getCategoryById(rs.getInt("cid")),
+						rs.getString("status"));
+				
+				list.add(p);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	public List<Products> search(String key){
+		List<Products> list = new ArrayList<>();
+		String sql = "select * from Products where 1=1";
+		if(key!=null &&!key.equals("")) {
+			sql+=" and (name like '%"+key+"%' or describe like '%"+key+"%')";
+		}
+		
+		try {
+			PreparedStatement st = con.prepareStatement(sql);
+			ResultSet rs = st.executeQuery();
+			cdao = new CategoryDAO();
+			while(rs.next()) {
+				Products p = new Products(
+						rs.getInt("id"),
+						rs.getString("name"), 
+						rs.getDouble("price"),
+						rs.getDate("releasedate"), 
+						rs.getString("describe"),
+						rs.getString("image"),
+						cdao.getCategoryById(rs.getInt("cid")),
+						rs.getString("status"));
+				
+				list.add(p);
+			}
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+		return list;
 	}
 }

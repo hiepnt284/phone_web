@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Danh sách đơn hàng</title>
+<title>Danh sách sản phẩm</title>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -65,41 +66,42 @@
 </style>
 <script type="text/javascript">
     function doDelete(id) {
-        if (confirm("Are you sure to delete order with id =" + id)) {
-            window.location = "delete?id=" + id;
+        if (confirm("Are you sure to delete product with id =" + id)) {
+            window.location = "http://localhost:8080/dien_thoai3/deleteproduct?id=" + id;
         }
     }
 </script>
 </head>
 <body>
-    <h1>Danh sách đơn hàng</h1>
+    <h1>Chi tiết đơn hàng</h1>
+    
     <center>
-    <a class="button" href="admin/homeadmin.jsp">Back</a>
+    	<a class="button" href="http://localhost:8080/dien_thoai3/listorder">Back</a>
+	    <c:if test="${not empty succMsg }">
+	        	<h3 style="color:green">${succMsg}</h3>
+	        	<c:remove var="succMsg" scope="session"/>
+	        </c:if>
+	        <c:if test="${not empty failedMsg }">
+	        	<h3 style="color:red">${failedMsg}</h3>
+	        	<c:remove var="failedMsg" scope="session"/>
+	    </c:if>
         <table>
             <tr>
-                <th>ID</th>
-                <th>Tên khách hàng</th>
-                <th>Ngày đặt</th>
+                <th>ProductID</th>
+                <th>Tên sản phẩm</th>
+                <th>Ảnh</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
                 <th>Tổng tiền</th>
-                <th>Số điện thoại</th>
-                <th>Địa chỉ</th>
-                <th>Trạng thái</th>
-                <th>Action</th>
             </tr>
             <c:forEach items="${requestScope.list}" var="c">
-                <c:set var="id" value="${c.id}" />
                 <tr>
-                    <td>${id}</td>
-                    <td>${c.fullname}</td>
-                    <td>${c.date}</td>
-                    <td>${c.totalmoney}</td>
-                    <td>${c.phone}</td>
-                    <td>${c.address}</td>
-                    <td>${c.status}</td>
-                    <td class="action-buttons">
-                        <a class="button" href="update?id=${id}">Update</a>
-                        <a class="button" href="http://localhost:8080/dien_thoai3/listorderdetail?oid=${id}" >Xem chi tiết đơn</a>
-                    </td>
+                    <td>${c.pid}</td>
+                    <td>${c.name}</td>
+                    <td><img style="width: 70px; height: auto" alt="anh" src="images/${c.image }"></td>
+                    <td>${c.price}</td>
+                    <td>${c.quantity}</td>
+                    <td>${c.price*c.quantity}</td>
                 </tr>
             </c:forEach>
         </table>

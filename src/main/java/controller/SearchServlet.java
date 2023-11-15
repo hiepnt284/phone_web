@@ -6,24 +6,28 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import model.Category;
 import model.Products;
 import model.User;
 
 import java.io.IOException;
-import java.sql.Date;
+import java.util.List;
 
 import dal.CartDAO;
+import dal.CategoryDAO;
 import dal.ProductDAO;
 
-/**
- * Servlet implementation class UpdateServlet
- */
-public class DetailProductServlet extends HttpServlet {
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int id = Integer.parseInt(request.getParameter("id")) ;
-		ProductDAO dao = new ProductDAO();
 
+public class SearchServlet extends HttpServlet {
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
+			String key = request.getParameter("key");
+			ProductDAO pdao = new ProductDAO();
+			CategoryDAO cdao = new CategoryDAO();
+			List<Category> listc = cdao.getAll();
+			List<Products> listp = pdao.search(key);
 			HttpSession session = request.getSession();
 			User u = (User)session.getAttribute("user");
 			if(u!=null) {
@@ -31,17 +35,18 @@ public class DetailProductServlet extends HttpServlet {
 				int count = cartdao.countInCart(u.getId());
 				request.setAttribute("count", count);
 			}
-			Products p = dao.findById(id);
-			request.setAttribute("p", p	);
-			request.getRequestDispatcher("detailproduct.jsp").forward(request, response);
+			request.setAttribute("key", key);
+			request.setAttribute("listp", listp);
+			request.setAttribute("listc", listc);
+			request.getRequestDispatcher("home.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-
 	}
 
 }

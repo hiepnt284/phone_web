@@ -3,8 +3,8 @@ package dal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 
 import model.Cart;
 import model.Products;
@@ -131,5 +131,18 @@ public class CartDAO extends dbContext{
 		return list;
 }
 
+	public boolean removeAll(int uid) {
+		try {
+			String sql = "delete from Carts where uid =?";
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setInt(1, uid);
+			if(st.executeUpdate()==1) {
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 
 }

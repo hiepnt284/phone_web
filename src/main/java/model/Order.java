@@ -1,24 +1,48 @@
 package model;
 
-import java.io.Serializable;
-import java.util.List;
 
-public class Order implements Serializable{
+public class Order {
 	private int id;
-	private User user;
-	private List<OrderDetail> list;
+	private String fullname;
+	private String date;
+	private int uid;
+	private double totalmoney;
 	private String status;
+	private String address;
+	private String phone;
 	
-	public Order(int id, User user, List<OrderDetail> list, String status) {
-		super();
-		this.id = id;
-		this.user = user;
-		this.list = list;
-		this.status = status;
+	public Order() {
 	}
 
-	public Order() {
+	public Order(int id, String date, int uid, double totalmoney, String status, String address, String phone) {
 		super();
+		this.id = id;
+		this.date = date;
+		this.uid = uid;
+		this.totalmoney = totalmoney;
+		this.status = status;
+		this.address = address;
+		this.phone = phone;
+	}
+
+	public Order(String date, int uid, double totalmoney, String address, String phone) {
+		this.date = date;
+		this.uid = uid;
+		this.totalmoney = totalmoney;
+		this.address = address;
+		this.phone = phone;
+	}
+
+	public Order(int id, String fullname, String date, int uid, double totalmoney, String status, String address,
+			String phone) {
+		this.id = id;
+		this.fullname = fullname;
+		this.date = date;
+		this.uid = uid;
+		this.totalmoney = totalmoney;
+		this.status = status;
+		this.address = address;
+		this.phone = phone;
 	}
 
 	public int getId() {
@@ -29,20 +53,28 @@ public class Order implements Serializable{
 		this.id = id;
 	}
 
-	public User getUser() {
-		return user;
+	public String getDate() {
+		return date;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setDate(String date) {
+		this.date = date;
 	}
 
-	public List<OrderDetail> getList() {
-		return list;
+	public int getUid() {
+		return uid;
 	}
 
-	public void setList(List<OrderDetail> list) {
-		this.list = list;
+	public void setUid(int uid) {
+		this.uid = uid;
+	}
+
+	public double getTotalmoney() {
+		return totalmoney;
+	}
+
+	public void setTotalmoney(double totalmoney) {
+		this.totalmoney = totalmoney;
 	}
 
 	public String getStatus() {
@@ -52,6 +84,31 @@ public class Order implements Serializable{
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getFullname() {
+		return fullname;
+	}
+
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
+	}
+	
 	
 	
 	
