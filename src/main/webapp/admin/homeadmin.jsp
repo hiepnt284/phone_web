@@ -10,16 +10,39 @@
     <link rel="stylesheet" href="../css/homeadmin.css"/>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<style type="text/css">
+.logo-container {
+	display: flex;
+	align-items: center;
+	font-size: 30px;
+
+}
+.logo,
+.cart-icon {
+	font-size: 40px;
+}
+.header {
+	display: flex;
+	padding: 20px;
+	background-color: rgb(255, 128, 0);
+	align-items: center;
+	color: white;
+	justify-content: space-between;
+}
+
+</style>
 </head>
 <body>
 	<div class="header">
-		<img class="logo" alt="logo" src="../images/mobile_logo.jpg">
+		<div class="logo-container"">
+			<i class="fa-solid fa-mobile-screen-button logo"></i>MOBILE SHOP
+		</div>
 		
 		<div class="login">
-			<c:if test="${not empty user }">
+			<c:if test="${not empty admin }">
 				<a href="" class="btn btn-success">
 				<i class="fa-solid fa-user"></i>
-				${user.username}
+				${admin.username}
 				</a>
 				<a data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary">
 				<i class="fa-solid fa-right-to-bracket"></i>
@@ -27,7 +50,7 @@
 				</a>
 	        </c:if>
 	        
-	        <c:if test="${empty user }">
+	        <c:if test="${empty admin }">
 				<a href="../login.jsp" class="btn btn-success">
 				<i class="fa-solid fa-right-to-bracket"></i>
 				Login

@@ -5,20 +5,12 @@
 body{
 	background-color: gray;
 }
-.header {
-	display: flex;
-	padding: 20px;
-	background-color: rgb(255, 128, 0);
-	align-items: center;
-	color: white;
-}
 
-.logo{
-	height: 50px;
-	width: auto;
-}
-.login{
-	margin-left: auto;
+.logo-container {
+	display: flex;
+	align-items: center;
+	font-size: 30px;
+
 }
 
 		

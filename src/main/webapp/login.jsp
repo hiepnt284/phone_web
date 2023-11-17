@@ -24,7 +24,7 @@
             display: block;
             margin-bottom: 5px;
         }
-        input {
+        .input {
             width: 90%;
             padding: 10px;
             margin-bottom: 10px;
@@ -45,6 +45,9 @@
         .error-message {
             color: #ff0000;
         }
+        .rem{
+        display:flex;
+        }
     </style>
 </head>
 <body>
@@ -58,16 +61,20 @@
         	<h2 style="color:green">${succMsg}</h2>
         	<c:remove var="succMsg" scope="session"/>
         </c:if>
+        <c:set var="cookie" value="${pageContext.request.cookies }"/>
         <form id="login-form" action="login" method="post">
             <div class="form-group">
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
+                <input class="input" type="text" id="username" name="username" value="${cookie.cuser.value }" required>
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+                <input class="input" type="password" id="password" name="password" value="${cookie.cpass.value }" required>
             </div>
-            <div id="login-error" class="error-message"></div>
+            <div class="rem">
+            Remember me <input type="checkbox" ${(cookie.crem!=null?'checked':'')} name ="rem" value="ON">
+            </div>
+            <br>
             <button type="submit">Đăng nhập</button>
         </form>
         <p><a href="signup.jsp">Đăng ký tài khoản</a></p>

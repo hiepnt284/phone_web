@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Chi tiết đơn hàng</title>
+<title>Danh sách đơn hàng</title>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -66,32 +65,32 @@
 </style>
 </head>
 <body>
-    <h1>Chi tiết đơn hàng</h1>
-    
+    <h1>Danh sách đơn hàng</h1>
     <center>
-    	<c:if test="${not empty user }">
-    	<a class="button" href="http://localhost:8080/dien_thoai3/orderuser">Back</a>
-        </c:if>
-        <c:if test="${empty user }">
-    	<a class="button" href="http://localhost:8080/dien_thoai3/listorder">Back</a>
-        </c:if>
+    <a class="button" href="user.jsp">Back</a>
         <table>
             <tr>
-                <th>ProductID</th>
-                <th>Tên sản phẩm</th>
-                <th>Ảnh</th>
-                <th>Giá</th>
-                <th>Số lượng</th>
+                <th>ID</th>
+                <th>Ngày đặt</th>
                 <th>Tổng tiền</th>
+                <th>Số điện thoại</th>
+                <th>Địa chỉ</th>
+                <th>Trạng thái</th>
+                <th>Action</th>
             </tr>
             <c:forEach items="${requestScope.list}" var="c">
+                <c:set var="id" value="${c.id}" />
                 <tr>
-                    <td>${c.pid}</td>
-                    <td>${c.name}</td>
-                    <td><img style="width: 70px; height: auto" alt="anh" src="images/${c.image }"></td>
-                    <td>${c.price}</td>
-                    <td>${c.quantity}</td>
-                    <td>${c.price*c.quantity}</td>
+                    <td>${id}</td>
+                    <td>${c.date}</td>
+                    <td>${c.totalmoney}</td>
+                    <td>${c.phone}</td>
+                    <td>${c.address}</td>
+                    <td>${c.status}</td>
+                    <td class="action-buttons">
+                        <a class="button" href="update?id=${id}">Update</a>
+                        <a class="button" href="http://localhost:8080/dien_thoai3/listorderdetail?oid=${id}" >Xem chi tiết đơn</a>
+                    </td>
                 </tr>
             </c:forEach>
         </table>

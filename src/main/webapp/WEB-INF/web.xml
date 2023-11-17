@@ -209,4 +209,24 @@
     <servlet-name>ListOrderDetail</servlet-name>
     <url-pattern>/listorderdetail</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>OrderUser</display-name>
+    <servlet-name>OrderUser</servlet-name>
+    <servlet-class>controller.OrderUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OrderUser</servlet-name>
+    <url-pattern>/orderuser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ChangePasswordServlet</display-name>
+    <servlet-name>ChangePasswordServlet</servlet-name>
+    <servlet-class>controller.ChangePasswordServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ChangePasswordServlet</servlet-name>
+    <url-pattern>/changepassword</url-pattern>
+  </servlet-mapping>
 </web-app>

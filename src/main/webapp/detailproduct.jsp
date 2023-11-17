@@ -16,7 +16,16 @@ body {
 	padding: 0;
 	background-color: #f4f4f4;
 }
-
+.activee {
+	background-color: white;
+	color: rgb(255, 128, 0) !important;
+}
+.search-button {
+	border: none;
+	background: none;
+	cursor: pointer;
+	padding: 0;
+}
 .product-containerr {
 	width: 1000px;
 	margin: 20px auto;

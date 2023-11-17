@@ -17,9 +17,12 @@
 	margin-bottom: 117px;
 }
 
-
-.icon-feature{
+.icon-feature {
 	font-size: 50px;
+}
+.button{
+	padding:20px !important;
+	background-color: rgb(255, 128, 0) !important;
 }
 </style>
 <%@include file="component/allcss.jsp"%>
@@ -27,20 +30,20 @@
 <body>
 	<%@include file="component/header.jsp"%>
 	<div class="menuu">
-		<a href="editprofile.jsp"
-			class="btn btn-primary"> 
-			<i class="fa-solid fa-user-gear icon-feature"></i>
-			<h2>Profile&Security</h2>
-		</a> <a href="http://localhost:8080/dien_thoai3/listproduct"
-			class="btn btn-primary"> <i
-			class="fa-solid fa-list-ul icon-feature"></i>
-			<h2>Danh Sách Sản Phẩm</h2>
-		</a> <a href="listorder.jsp" class="btn btn-primary"> <i
+		<a href="http://localhost:8080/dien_thoai3/editprofile" class="btn btn-primary button"> <i
+			class="fa-solid fa-user-gear icon-feature"></i>
+			<h2>Profile</h2>
+		</a> <a href="changepass.jsp"
+			class="btn btn-primary button"> <i
+			class="fa-solid fa-key icon-feature"></i>
+			<h2>Đổi mật khẩu</h2>
+		</a> <a href="http://localhost:8080/dien_thoai3/orderuser"
+			class="btn btn-primary button"> <i
 			class="fa-solid fa-cubes icon-feature"></i>
-			<h2>Danh Sách Đơn Hàng</h2>
+			<h2>Đơn Hàng</h2>
 		</a>
 	</div>
-		<%@include file="component/footer.jsp"%>
+	<%@include file="component/footer.jsp"%>
 
 </body>
 </html>

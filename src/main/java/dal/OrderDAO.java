@@ -92,4 +92,31 @@ public class OrderDAO extends dbContext{
 		}
 		return list;
 	}
+	
+	public List<Order> getOrderByUid(int uid){
+		List<Order> list = new ArrayList<>();
+		String sql = "select * from Orders where uid = ?";
+		try {
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setInt(1, uid);
+			ResultSet rs = st.executeQuery();
+			UserDAO udao = new UserDAO();
+			while(rs.next()) {
+				Order o = new Order(
+						rs.getInt("id"),
+						udao.getUserById(rs.getInt("uid")).getFullname() , 
+						rs.getString("date"),
+						rs.getInt("uid"), 
+						rs.getDouble("totalmoney"),
+						rs.getString("status"),
+						rs.getString("address"),
+						rs.getString("phone"));
+				
+				list.add(o);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 }

@@ -61,7 +61,7 @@
         <p>Cảm ơn bạn đã đặt hàng. Đơn hàng của bạn đã được xác nhận và đang được xử lý.</p>
         
         <div class="buttons">
-            <a href="#" >Xem chi tiết đơn hàng</a>
+            <a href="" >Xem chi tiết đơn hàng</a>
             <a href="http://localhost:8080/dien_thoai3/home" >Tiếp tục mua sắm</a>
         </div>
     </div>

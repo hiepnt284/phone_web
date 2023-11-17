@@ -3,8 +3,8 @@
 <div class="footer-container">
 	<div class="contact-info">
 		<h3>Thông tin liên hệ</h3>
-		<p>Email: contact@example.com</p>
-		<p>Điện thoại: 0123456789</p>
+		<p>Email: hiepyolo02@gmail.com</p>
+		<p>Điện thoại: 0976071573</p>
 		<p>Địa chỉ: 123 Đường ABC, Thành phố XYZ</p>
 	</div>
 	<div class="footer-links">
@@ -18,7 +18,7 @@
 	<div class="social-links">
 		<h3>Kết nối xã hội</h3>
 		<ul>
-			<li><a href="#"><i class="fab fa-facebook"></i></a></li>
+			<li><a href="https://www.facebook.com/profile.php?id=100006624529381" target="_blank"><i class="fab fa-facebook"></i></a></li>
 			<li><a href="#"><i class="fab fa-twitter"></i></a></li>
 			<li><a href="#"><i class="fab fa-instagram"></i></a></li>
 		</ul>
