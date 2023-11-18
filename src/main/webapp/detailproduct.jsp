@@ -68,16 +68,16 @@ body {
 
 			<c:if test="${not empty user }">
 				<a class="btn btn-primary"
-					href="http://localhost:8080/dien_thoai3/buynow?uid=${user.id}&pid=${p.id }">
+					href="/dien_thoai3/user/buynow?uid=${user.id}&pid=${p.id }">
 					Mua ngay</a>
 				<a
-					href="http://localhost:8080/dien_thoai3/addtocart?uid=${user.id}&pid=${p.id }"
+					href="/dien_thoai3/user/addtocart?uid=${user.id}&pid=${p.id }"
 					class="btn btn-success"> Add to cart </a>
 
 			</c:if>
 			<c:if test="${empty user }">
-				<a class="btn btn-primary" href="login.jsp ">Mua ngay</a>
-				<a href="login.jsp" class="btn btn-success"> Add to cart </a>
+				<a class="btn btn-primary" href="/dien_thoai3/login.jsp ">Mua ngay</a>
+				<a href="/dien_thoai3/login.jsp" class="btn btn-success"> Add to cart </a>
 			</c:if>
 		</div>
 	</div>

@@ -67,7 +67,7 @@
 <script type="text/javascript">
     function doDelete(id) {
         if (confirm("Are you sure to delete product with id =" + id)) {
-            window.location = "http://localhost:8080/dien_thoai3/deleteproduct?id=" + id;
+            window.location = "/dien_thoai3/admin/deleteproduct?id=" + id;
         }
     }
 </script>
@@ -76,7 +76,7 @@
     <h1>Danh sách sản phẩm</h1>
     
     <center>
-    	<a class="button" href="admin/homeadmin.jsp">Back</a>
+    	<a class="button" href="/dien_thoai3/admin/homeadmin.jsp">Back</a>
 	    <c:if test="${not empty succMsg }">
 	        	<h3 style="color:green">${succMsg}</h3>
 	        	<c:remove var="succMsg" scope="session"/>
@@ -102,14 +102,14 @@
                 <tr>
                     <td>${id}</td>
                     <td>${c.name}</td>
-                    <td><img style="width: 70px; height: auto" alt="anh" src="images/${c.image }"></td>
+                    <td><img style="width: 70px; height: auto" alt="anh" src="../images/${c.image }"></td>
                     <td>${c.price}</td>
                     <td>${c.releaseDate}</td>
                     <td>${c.describe}</td>
                     <td>${c.category.name}</td>
                     <td>${c.status}</td>
                     <td class="action-buttons">
-                        <a class="button" href="http://localhost:8080/dien_thoai3/editproduct?id=${id}">Update</a>
+                        <a class="button" href="/dien_thoai3/admin/editproduct?id=${id}">Update</a>
                         <a class="button" href="#" onclick="doDelete('${id}')">Delete</a>
                     </td>
                 </tr>

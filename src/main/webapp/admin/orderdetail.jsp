@@ -69,12 +69,7 @@
     <h1>Chi tiết đơn hàng</h1>
     
     <center>
-    	<c:if test="${not empty user }">
-    	<a class="button" href="http://localhost:8080/dien_thoai3/orderuser">Back</a>
-        </c:if>
-        <c:if test="${empty user }">
-    	<a class="button" href="http://localhost:8080/dien_thoai3/listorder">Back</a>
-        </c:if>
+    	<a class="button" href="/dien_thoai3/admin/listorder">Back</a>
         <table>
             <tr>
                 <th>ProductID</th>
@@ -88,7 +83,7 @@
                 <tr>
                     <td>${c.pid}</td>
                     <td>${c.name}</td>
-                    <td><img style="width: 70px; height: auto" alt="anh" src="images/${c.image }"></td>
+                    <td><img style="width: 70px; height: auto" alt="anh" src="../images/${c.image }"></td>
                     <td>${c.price}</td>
                     <td>${c.quantity}</td>
                     <td>${c.price*c.quantity}</td>

@@ -51,22 +51,22 @@ public class LoginServlet extends HttpServlet {
 				User us = new User();
 				us.setUsername("Admin");
 				session.setAttribute("admin", us);
-				response.sendRedirect("admin/homeadmin.jsp");
+				response.sendRedirect("/dien_thoai3/admin/homeadmin.jsp");
 			}else {
 				User u = udao.login(username);		
 				if(u!=null) {
 					String hashedpass = u.getPassword();
 					if(BCrypt.checkpw(password, hashedpass)) {
 						session.setAttribute("user", u);
-						response.sendRedirect("http://localhost:8080/dien_thoai3/home");
+						response.sendRedirect("/dien_thoai3/home");
 					}else {
 						session.setAttribute("failedMsg", "username or password sai");
-						response.sendRedirect("login.jsp");
+						response.sendRedirect("/dien_thoai3/login.jsp");
 					}
 					
 				}else {
 					session.setAttribute("failedMsg", "username or password sai");
-					response.sendRedirect("login.jsp");
+					response.sendRedirect("/dien_thoai3/login.jsp");
 				}
 			}
 		} catch (Exception e) {

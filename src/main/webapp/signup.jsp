@@ -67,14 +67,14 @@
         	<h3 style="color:green">${succMsg}</h3>
         	<c:remove var="succMsg" scope="session"/>
         	<div class="login">
-        	<a href="login.jsp">Đăng nhập ngay</a>
+        	<a href="/dien_thoai3/login.jsp">Đăng nhập ngay</a>
         	</div>
         </c:if>
         <c:if test="${not empty failedMsg }">
         	<h3 style="color:red">${failedMsg}</h3>
         	<c:remove var="failedMsg" scope="session"/>
         </c:if>
-        <form id="registration-form" action="signup" method="post">
+        <form id="registration-form" action="/dien_thoai3/signup" method="post">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>

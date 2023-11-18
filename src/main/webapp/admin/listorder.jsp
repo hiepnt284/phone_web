@@ -63,18 +63,11 @@
 
 
 </style>
-<script type="text/javascript">
-    function doDelete(id) {
-        if (confirm("Are you sure to delete order with id =" + id)) {
-            window.location = "delete?id=" + id;
-        }
-    }
-</script>
 </head>
 <body>
     <h1>Danh sách đơn hàng</h1>
     <center>
-    <a class="button" href="admin/homeadmin.jsp">Back</a>
+    <a class="button" href="/dien_thoai3/admin/homeadmin.jsp">Back</a>
         <table>
             <tr>
                 <th>ID</th>
@@ -97,8 +90,8 @@
                     <td>${c.address}</td>
                     <td>${c.status}</td>
                     <td class="action-buttons">
-                        <a class="button" href="update?id=${id}">Update</a>
-                        <a class="button" href="http://localhost:8080/dien_thoai3/listorderdetail?oid=${id}" >Xem chi tiết đơn</a>
+                        <a class="button" href="/dien_thoai3/admin/update?id=${id}">Update</a>
+                        <a class="button" href="/dien_thoai3/admin/listorderdetail?oid=${id}" >Xem chi tiết đơn</a>
                     </td>
                 </tr>
             </c:forEach>

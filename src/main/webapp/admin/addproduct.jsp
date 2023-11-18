@@ -91,7 +91,7 @@
         	<h3 style="color:red">${failedMsg}</h3>
         	<c:remove var="failedMsg" scope="session"/>
         </c:if>
-	<form action="addproduct" method="post" enctype="multipart/form-data">
+	<form action="/dien_thoai3/admin/addproduct" method="post" enctype="multipart/form-data">
 		Tên sản phẩm:<input type="text" name="name"/><br/><br/>
 		Giá sản phẩm:<input type="number" name="price"/><br/><br/>
 		Ngày ra mắt:<input type="date" name="releasedate"/><br/><br/>
@@ -117,7 +117,7 @@
 		<br>
 		<br>
 		<center>
-		<a class="button" href="admin/homeadmin.jsp">Back</a>
+		<a class="button" href="/dien_thoai3/admin/homeadmin.jsp">Back</a>
 		<input type="submit" value="Save"/>
 		<center/>
 	</form>

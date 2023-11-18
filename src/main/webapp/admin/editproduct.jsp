@@ -76,7 +76,7 @@
 <body>
 	<h1>Edit Product</h1>
 	<c:set var="c" value="${requestScope.p}"/>
-	<form action="editproduct" method="post">
+	<form action="/dien_thoai3/admin/editproduct" method="post">
 		ID:<input type="number" name="id" readonly="readonly" value="${c.id}"/><br/><br/>
 		Tên sản phẩm:<input type="text" name="name" value="${c.name}"/><br/><br/>
 		Giá sản phẩm:<input type="number" name="price" value="${c.price}"/><br/><br/>
@@ -96,7 +96,7 @@
 		</select>
 
 		<center>
-		<a class="button" href="http://localhost:8080/dien_thoai3/listproduct">Back</a>
+		<a class="button" href="/dien_thoai3/admin/listproduct">Back</a>
 		<input type="submit" value="Update"/>
 		<center/>
 	</form>

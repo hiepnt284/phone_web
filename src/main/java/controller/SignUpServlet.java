@@ -35,7 +35,7 @@ public class SignUpServlet extends HttpServlet {
 			}else {
 				session.setAttribute("failedMsg", "Username đã tồn tại");
 			}
-			response.sendRedirect("signup.jsp");
+			response.sendRedirect("/dien_thoai3/signup.jsp");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

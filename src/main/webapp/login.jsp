@@ -62,7 +62,7 @@
         	<c:remove var="succMsg" scope="session"/>
         </c:if>
         <c:set var="cookie" value="${pageContext.request.cookies }"/>
-        <form id="login-form" action="login" method="post">
+        <form id="login-form" action="/dien_thoai3/login" method="post">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input class="input" type="text" id="username" name="username" value="${cookie.cuser.value }" required>
@@ -77,7 +77,7 @@
             <br>
             <button type="submit">Đăng nhập</button>
         </form>
-        <p><a href="signup.jsp">Đăng ký tài khoản</a></p>
+        <p><a href="/dien_thoai3/signup.jsp">Đăng ký tài khoản</a></p>
     </div>
 
 

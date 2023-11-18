@@ -33,7 +33,7 @@ public class DetailProductServlet extends HttpServlet {
 			}
 			Products p = dao.findById(id);
 			request.setAttribute("p", p	);
-			request.getRequestDispatcher("detailproduct.jsp").forward(request, response);
+			request.getRequestDispatcher("/detailproduct.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

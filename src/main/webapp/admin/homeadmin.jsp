@@ -51,11 +51,11 @@
 	        </c:if>
 	        
 	        <c:if test="${empty admin }">
-				<a href="../login.jsp" class="btn btn-success">
+				<a href="/dien_thoai3/login.jsp" class="btn btn-success">
 				<i class="fa-solid fa-right-to-bracket"></i>
 				Login
 				</a>
-				<a href="../signup.jsp" class="btn btn-primary">
+				<a href="/dien_thoai3/signup.jsp" class="btn btn-primary">
 				<i class="fa-solid fa-user-plus"></i>
 				Register
 				</a>
@@ -78,7 +78,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <a href="http://localhost:8080/dien_thoai3/logout" type="button" class="btn btn-primary">Logout</a>
+        <a href="/dien_thoai3/logout" type="button" class="btn btn-primary">Logout</a>
       </div>
     </div>
   </div>
@@ -87,15 +87,15 @@
 
 
     <div class="menuu">
-        <a href="http://localhost:8080/dien_thoai3/addproduct" class="btn btn-primary">
+        <a href="/dien_thoai3/admin/addproduct" class="btn btn-primary">
         	<i class="fa-solid fa-square-plus icon-feature"></i>
         	<h2>Thêm sản phẩm</h2>
         </a>
-        <a href="http://localhost:8080/dien_thoai3/listproduct" class="btn btn-primary">
+        <a href="/dien_thoai3/admin/listproduct" class="btn btn-primary">
 	        <i class="fa-solid fa-list-ul icon-feature"></i>
 	        <h2>Danh Sách Sản Phẩm</h2>
         </a>
-        <a href="http://localhost:8080/dien_thoai3/listorder" class="btn btn-primary">
+        <a href="/dien_thoai3/admin/listorder" class="btn btn-primary">
 	        <i class="fa-solid fa-cubes icon-feature" ></i>
 	        <h2>Danh Sách Đơn Hàng</h2>
         </a>

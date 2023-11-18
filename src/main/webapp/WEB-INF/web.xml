@@ -43,41 +43,41 @@
     <description></description>
     <display-name>AddProductServlet</display-name>
     <servlet-name>AddProductServlet</servlet-name>
-    <servlet-class>controller.AddProductServlet</servlet-class>
+    <servlet-class>adminController.AddProductServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>AddProductServlet</servlet-name>
-    <url-pattern>/addproduct</url-pattern>
+    <url-pattern>/admin/addproduct</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>ListProductServlet</display-name>
     <servlet-name>ListProductServlet</servlet-name>
-    <servlet-class>controller.ListProductServlet</servlet-class>
+    <servlet-class>adminController.ListProductServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ListProductServlet</servlet-name>
-    <url-pattern>/listproduct</url-pattern>
+    <url-pattern>/admin/listproduct</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>DeleteProductServlet</display-name>
     <servlet-name>DeleteProductServlet</servlet-name>
-    <servlet-class>controller.DeleteProductServlet</servlet-class>
+    <servlet-class>adminController.DeleteProductServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>DeleteProductServlet</servlet-name>
-    <url-pattern>/deleteproduct</url-pattern>
+    <url-pattern>/admin/deleteproduct</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>EditProductServlet</display-name>
     <servlet-name>EditProductServlet</servlet-name>
-    <servlet-class>controller.EditProductServlet</servlet-class>
+    <servlet-class>adminController.EditProductServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>EditProductServlet</servlet-name>
-    <url-pattern>/editproduct</url-pattern>
+    <url-pattern>/admin/editproduct</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -113,51 +113,51 @@
     <description></description>
     <display-name>AddToCartServlet</display-name>
     <servlet-name>AddToCartServlet</servlet-name>
-    <servlet-class>controller.AddToCartServlet</servlet-class>
+    <servlet-class>userController.AddToCartServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>AddToCartServlet</servlet-name>
-    <url-pattern>/addtocart</url-pattern>
+    <url-pattern>/user/addtocart</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>ShowCartServlet</display-name>
     <servlet-name>ShowCartServlet</servlet-name>
-    <servlet-class>controller.ShowCartServlet</servlet-class>
+    <servlet-class>userController.ShowCartServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ShowCartServlet</servlet-name>
-    <url-pattern>/showcart</url-pattern>
+    <url-pattern>/user/showcart</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>EditCartServlet</display-name>
     <servlet-name>EditCartServlet</servlet-name>
-    <servlet-class>controller.EditCartServlet</servlet-class>
+    <servlet-class>userController.EditCartServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>EditCartServlet</servlet-name>
-    <url-pattern>/editcart</url-pattern>
+    <url-pattern>/user/editcart</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>CheckOutServlet</display-name>
     <servlet-name>CheckOutServlet</servlet-name>
-    <servlet-class>controller.CheckOutServlet</servlet-class>
+    <servlet-class>userController.CheckOutServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>CheckOutServlet</servlet-name>
-    <url-pattern>/checkout</url-pattern>
+    <url-pattern>/user/checkout</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>BuyNowServlet</display-name>
     <servlet-name>BuyNowServlet</servlet-name>
-    <servlet-class>controller.BuyNowServlet</servlet-class>
+    <servlet-class>userController.BuyNowServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>BuyNowServlet</servlet-name>
-    <url-pattern>/buynow</url-pattern>
+    <url-pattern>/user/buynow</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -183,50 +183,79 @@
     <description></description>
     <display-name>EditProfile</display-name>
     <servlet-name>EditProfile</servlet-name>
-    <servlet-class>controller.EditProfile</servlet-class>
+    <servlet-class>userController.EditProfile</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>EditProfile</servlet-name>
-    <url-pattern>/editprofile</url-pattern>
+    <url-pattern>/user/editprofile</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>ListOrderServlet</display-name>
     <servlet-name>ListOrderServlet</servlet-name>
-    <servlet-class>controller.ListOrderServlet</servlet-class>
+    <servlet-class>adminController.ListOrderServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ListOrderServlet</servlet-name>
-    <url-pattern>/listorder</url-pattern>
+    <url-pattern>/admin/listorder</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>ListOrderDetail</display-name>
     <servlet-name>ListOrderDetail</servlet-name>
-    <servlet-class>controller.ListOrderDetail</servlet-class>
+    <servlet-class>adminController.ListOrderDetail</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ListOrderDetail</servlet-name>
-    <url-pattern>/listorderdetail</url-pattern>
+    <url-pattern>/admin/listorderdetail</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>OrderUser</display-name>
-    <servlet-name>OrderUser</servlet-name>
-    <servlet-class>controller.OrderUser</servlet-class>
+    <display-name>ListOrderUserServlet</display-name>
+    <servlet-name>ListOrderUserServlet</servlet-name>
+    <servlet-class>userController.ListOrderUserServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>OrderUser</servlet-name>
-    <url-pattern>/orderuser</url-pattern>
+    <servlet-name>ListOrderUserServlet</servlet-name>
+    <url-pattern>/user/listorderuser</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>ChangePasswordServlet</display-name>
     <servlet-name>ChangePasswordServlet</servlet-name>
-    <servlet-class>controller.ChangePasswordServlet</servlet-class>
+    <servlet-class>userController.ChangePasswordServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ChangePasswordServlet</servlet-name>
-    <url-pattern>/changepassword</url-pattern>
+    <url-pattern>/user/changepassword</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <display-name>UserFilter</display-name>
+    <filter-name>UserFilter</filter-name>
+    <filter-class>filter.UserFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>UserFilter</filter-name>
+    <url-pattern>/user/*</url-pattern>
+  </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UserPageServlet</display-name>
+    <servlet-name>UserPageServlet</servlet-name>
+    <servlet-class>userController.UserPageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserPageServlet</servlet-name>
+    <url-pattern>/user/userpage</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>OrderDetailUserServlet</display-name>
+    <servlet-name>OrderDetailUserServlet</servlet-name>
+    <servlet-class>userController.OrderDetailUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OrderDetailUserServlet</servlet-name>
+    <url-pattern>/user/orderdetailuser</url-pattern>
   </servlet-mapping>
 </web-app>

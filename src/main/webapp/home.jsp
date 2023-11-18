@@ -100,15 +100,15 @@
 					<p class="price">${p.price }VNĐ</p>
 					<c:if test="${not empty user }">
 						<a
-							href="http://localhost:8080/dien_thoai3/addtocart?uid=${user.id}&pid=${id }"
+							href="/dien_thoai3/user/addtocart?uid=${user.id}&pid=${id }"
 							class="btn btn-success"> Add to cart </a>
 
 					</c:if>
 					<c:if test="${empty user }">
-						<a href="login.jsp" class="btn btn-success"> Add to cart </a>
+						<a href="/dien_thoai3/login.jsp" class="btn btn-success"> Add to cart </a>
 					</c:if>
 
-					<a href="http://localhost:8080/dien_thoai3/detailproduct?id=${id}"
+					<a href="/dien_thoai3/detailproduct?id=${id}"
 						class="btn btn-success">Mua</a>
 				</div>
 			</c:forEach>

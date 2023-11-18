@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%>
 <div class="header">
-	<a href="http://localhost:8080/dien_thoai3/home">
+	<a href="/dien_thoai3/home">
 		<div class="logo-container"">
 			<i class="fa-solid fa-mobile-screen-button logo"></i>MOBILE SHOP
 		</div>
@@ -8,7 +8,7 @@
 
 
 
-	<form method="get" action="http://localhost:8080/dien_thoai3/search">
+	<form method="get" action="/dien_thoai3/search">
 		<div class="search-container">
 			<input type="text" id="search-input" name="key"
 				placeholder="Tìm kiếm sản phẩm" value="${requestScope.key }"/>
@@ -20,18 +20,18 @@
 
 	<c:if test="${not empty user }">
 		<a class="cart"
-			href="http://localhost:8080/dien_thoai3/showcart?uid=${user.id }"><i
+			href="/dien_thoai3/user/showcart"><i
 			class="fa-solid fa-cart-shopping cart-icon"></i>${requestScope.count}</a>
 	</c:if>
 	<c:if test="${empty user }">
-		<a class="cart" href="login.jsp"><i
+		<a class="cart" href="/dien_thoai3/login.jsp"><i
 			class="fa-solid fa-cart-shopping cart-icon"></i></a>
 	</c:if>
 
 
 	<div class="login">
 		<c:if test="${not empty user }">
-			<a href="user.jsp" class="btn btn-success"> <i class="fa-solid fa-user"></i>
+			<a href="/dien_thoai3/user/userpage" class="btn btn-success"> <i class="fa-solid fa-user"></i>
 				${user.fullname}
 			</a>
 			<a data-bs-toggle="modal" data-bs-target="#exampleModal"
@@ -41,10 +41,10 @@
 		</c:if>
 
 		<c:if test="${empty user }">
-			<a href="login.jsp" class="btn btn-success"> <i
+			<a href="/dien_thoai3/login.jsp" class="btn btn-success"> <i
 				class="fa-solid fa-right-to-bracket"></i> Login
 			</a>
-			<a href="signup.jsp" class="btn btn-primary"> <i
+			<a href="/dien_thoai3/signup.jsp" class="btn btn-primary"> <i
 				class="fa-solid fa-user-plus"></i> Register
 			</a>
 		</c:if>
@@ -68,7 +68,7 @@
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary"
 					data-bs-dismiss="modal">Cancel</button>
-				<a href="http://localhost:8080/dien_thoai3/logout" type="button"
+				<a href="/dien_thoai3/logout" type="button"
 					class="btn btn-primary">Logout</a>
 			</div>
 		</div>
@@ -77,7 +77,7 @@
 <div class="main-menu">
 	<c:forEach items="${requestScope.listc}" var="c">
 		<c:set var="cid" value="${requestScope.cid}" />
-		<a href="category?cid=${c.id}"
+		<a href="/dien_thoai3/category?cid=${c.id}"
 			<c:if test="${c.id eq cid}">
                class="activee"
            </c:if>>
