@@ -40,6 +40,7 @@ public class EditCartServlet extends HttpServlet {
 	    } else if ("remove".equals(action)) {
 	    	dao.remove(cart);
 	    }
+		int count = dao.countInCart(uid);
 		List<Cart> list = dao.getAll(uid);
 		for(Cart c:list) {
 			c.setName(
@@ -51,6 +52,7 @@ public class EditCartServlet extends HttpServlet {
 					findById(c.getPid())
 					.getPrice());
 		}
+		request.setAttribute("count", count);
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("/user/cart.jsp").forward(request, response);
 	}

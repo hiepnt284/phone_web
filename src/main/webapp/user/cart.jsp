@@ -10,12 +10,7 @@
 <link rel="stylesheet" type="text/css" href="../css/home.css">
 <%@include file="../component/allcss.jsp"%>
 <style type="text/css">
-body {
-	font-family: Arial, sans-serif;
-	margin: 0;
-	padding: 0;
-	background-color: #f4f4f4;
-}
+
 
 .activee {
 	background-color: white;
@@ -79,7 +74,7 @@ body {
 	cursor: pointer;
 	border: 1px solid #ccc;
 	border-radius: 5px;
-	background-color: #007bff;
+	background-color: darkorange;
 	color: white;
 	margin-right: 10px;
 }
@@ -92,12 +87,23 @@ body {
 }
 
 .button:hover {
-	background-color: #00b8ff;
+	background-color: orangered;
+	color: white;
+}
+.wrap {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1;
 }
 </style>
 </head>
 <body>
-	<%@include file="../component/header.jsp"%>
+<div class="wrap">
+<%@include file="../component/header.jsp"%>
 	<div class="container">
 		<h1>Giỏ hàng</h1>
 		<c:if test="${empty requestScope.list}">
@@ -165,5 +171,7 @@ body {
 	</div>
 
 	<%@include file="../component/footer.jsp"%>
+</div>
+	
 </body>
 </html>

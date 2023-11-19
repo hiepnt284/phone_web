@@ -25,12 +25,15 @@
 
 .logo-container:hover {
 	cursor: pointer;
-	color: rgb(255, 0, 0);
+	color: lightgray;
 }
 
 .logo,
 .cart-icon {
 	font-size: 40px;
+}
+.cart:hover{
+	color: lightgray;
 }
 
 .search-container {
@@ -130,7 +133,14 @@
 	gap: 20px;
 
 }
-
+.btn{
+	background-color: darkorange !important;
+	border: 2px solid rgb(255, 255, 255) !important;
+}
+.btn:hover{
+	background-color:orangered !important;
+	color: white !important;
+}
 .product-item {
 	width: 300px;
 	padding: 10px;

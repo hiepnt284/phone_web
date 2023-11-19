@@ -1,26 +1,34 @@
+<!DOCTYPE html>
 <%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
+<%@page isELIgnored="false"%>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Change password</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart</title>
+<link rel="stylesheet" type="text/css" href="../css/home.css">
+<%@include file="../component/allcss.jsp"%>
 <style>
-body {
-	font-family: Arial, sans-serif;
-	margin: 0;
+.activee {
+	background-color: white;
+	color: rgb(255, 128, 0) !important;
+}
+
+.search-button {
+	border: none;
+	background: none;
+	cursor: pointer;
 	padding: 0;
 }
 
 h1 {
 	text-align: center;
-	background-color: #007bff;
-	color: #fff;
 	padding: 30px 0;
 	margin: 0;
 }
 
-form {
+.form {
 	max-width: 400px;
 	margin: 30px auto;
 	padding: 20px;
@@ -28,7 +36,7 @@ form {
 	border-radius: 5px;
 }
 
-input[type="password"], input[type="date"], input[type="number"], select {
+.form input[type="password"] {
 	width: 90%;
 	padding: 10px;
 	margin: 5px 0;
@@ -36,7 +44,7 @@ input[type="password"], input[type="date"], input[type="number"], select {
 	border-radius: 5px;
 }
 
-input[type="submit"] {
+.form input[type="submit"] {
 	background-color: #007bff;
 	color: #fff;
 	border: none;
@@ -45,28 +53,27 @@ input[type="submit"] {
 	cursor: pointer;
 }
 
-input[type="submit"]:hover {
-	background-color: #00b8ff;
+.form input[type="submit"]:hover {
+		color: white;
+	background-color:orangered !important;
 }
 
 .button {
 	display: inline-block;
-	padding: 8px 14px;
+	padding: 8px 20px;
 	text-align: center;
 	text-decoration: none;
 	cursor: pointer;
 	border: 1px solid #ccc;
 	border-radius: 5px;
-	background-color: #007bff;
+	background-color: rgb(255, 128, 0);
 	color: white;
-	width: 70px;
-	height: 36px;
-	box-sizing: border-box;
 	margin-right: 20px;
 }
 
 .button:hover {
-	background-color: #00b8ff;
+		color: white;
+	background-color:orangered !important;
 }
 .error-message {
             color: #ff0000;
@@ -74,6 +81,7 @@ input[type="submit"]:hover {
 </style>
 </head>
 <body>
+	<%@include file="../component/header.jsp"%>
 	<h1>Change password</h1>
 	<c:if test="${not empty succMsg }">
 		<center>
@@ -89,7 +97,7 @@ input[type="submit"]:hover {
 		<c:remove var="failedMsg" scope="session" />
 	</c:if>
 	<c:set var="c" value="${requestScope.u}" />
-	<form id="changepass" action="/dien_thoai3/user/changepassword" method="post">
+	<form class="form" id="changepass" action="/dien_thoai3/user/changepassword" method="post">
 		<div class="form-group">
 			<label for="oldpass">Mật khẩu cũ:</label> <input type="password"
 				id="oldpass" name="oldpass" required>
@@ -111,6 +119,7 @@ input[type="submit"]:hover {
 		</center>
 		
 	</form>
+<%@include file="../component/footer.jsp"%>
 	<script>
     const changepassForm = document.getElementById('changepass');
     const passwordInput = document.getElementById('password');

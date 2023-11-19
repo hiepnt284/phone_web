@@ -35,7 +35,7 @@ h1 {
 }
 
 .form input[type="submit"] {
-	background-color: #007bff;
+	background-color: darkorange !important;
 	color: #fff;
 	border: none;
 	border-radius: 5px;
@@ -44,27 +44,25 @@ h1 {
 }
 
 .form input[type="submit"]:hover {
-	background-color: #00b8ff;
+	background-color:orangered !important;
 }
 
 .button {
 	display: inline-block;
-	padding: 8px 14px;
+	padding: 8px 20px;
 	text-align: center;
 	text-decoration: none;
 	cursor: pointer;
 	border: 1px solid #ccc;
 	border-radius: 5px;
-	background-color: #007bff;
+	background-color: rgb(255, 128, 0);
 	color: white;
-	width: 70px;
-	height: 36px;
-	box-sizing: border-box;
 	margin-right: 20px;
 }
 
 .button:hover {
-	background-color: #00b8ff;
+	color: white;
+	background-color:orangered !important;
 }
 </style>
 </head>

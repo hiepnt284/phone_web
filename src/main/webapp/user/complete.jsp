@@ -1,71 +1,86 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page isELIgnored="false"%>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đặt hàng thành công</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart</title>
+<link rel="stylesheet" type="text/css" href="../css/home.css">
+<%@include file="../component/allcss.jsp"%>
+<style type="text/css">
+.activee {
+	background-color: white;
+	color: rgb(255, 128, 0) !important;
+}
 
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-            text-align: center;
-        }
+.search-button {
+	border: none;
+	background: none;
+	cursor: pointer;
+	padding: 0;
+}
 
-        h1 {
-            color: #333;
-        }
+.container {
+	max-width: 800px;
+	margin: 50px auto;
+	background-color: #fff;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	text-align: center;
+	padding: 70px;
+}
 
-        p {
-            color: #666;
-            font-size: 18px;
-            line-height: 1.6;
-        }
 
-        .buttons {
-            margin-top: 20px;
-        }
 
-        .buttons a {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            margin: 0 10px;
-            text-decoration: none;
-            cursor: pointer;
-            background-color: #4caf50;
-            color: #fff;
-            border-radius: 5px;
-        }
+.buttons {
+	margin-top: 20px;
+}
 
-        .buttons a:hover {
-            background-color: #45a049;
-        }
-    </style>
+.buttons a {
+padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background-color: darkorange;
+	color: white;
+	margin-right: 10px;
+}
+
+.buttons a:hover {
+	background-color: darkorange;
+}
+.wrap {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1;
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Đặt hàng thành công!</h1>
-        <p>Cảm ơn bạn đã đặt hàng. Đơn hàng của bạn đã được xác nhận và đang được xử lý.</p>
-        
-        <div class="buttons">
-            <a href="/dien_thoai3/user/listorderuser" >Xem chi tiết đơn hàng</a>
-            <a href="/dien_thoai3/home" >Tiếp tục mua sắm</a>
-        </div>
-    </div>
+<div class="wrap">
+<%@include file="../component/header.jsp"%>
+	<div class="container">
+		<h1>Đặt hàng thành công!</h1>
+		<p>Cảm ơn bạn đã đặt hàng. Đơn hàng của bạn đã được xác nhận và
+			đang được xử lý.</p>
 
+		<div class="buttons">
+			<a href="/dien_thoai3/user/listorderuser">Xem chi tiết đơn hàng</a>
+			<a href="/dien_thoai3/home">Tiếp tục mua sắm</a>
+		</div>
+	</div>
 
+	<%@include file="../component/footer.jsp"%>
+</div>
+	
 </body>
 </html>

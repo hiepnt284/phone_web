@@ -10,12 +10,7 @@
 <link rel="stylesheet" type="text/css" href="css/home.css">
 <%@include file="component/allcss.jsp"%>
 <style type="text/css">
-body {
-	font-family: Arial, sans-serif;
-	margin: 0;
-	padding: 0;
-	background-color: #f4f4f4;
-}
+
 .activee {
 	background-color: white;
 	color: rgb(255, 128, 0) !important;

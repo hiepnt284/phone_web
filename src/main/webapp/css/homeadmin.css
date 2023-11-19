@@ -2,9 +2,7 @@
 	margin: 0;
 	padding: 0;
 }
-body{
-	background-color: gray;
-}
+
 
 .logo-container {
 	display: flex;
@@ -12,7 +10,10 @@ body{
 	font-size: 30px;
 
 }
-
+.btn{
+	background-color: rgb(255, 128, 0) !important;
+	
+}
 		
 .menuu {
 	margin-top: 200px;
@@ -24,4 +25,28 @@ body{
 
 .icon-feature{
 	font-size: 50px;
+}
+.logo-container {
+	display: flex;
+	align-items: center;
+	font-size: 30px;
+
+}
+.logo,
+.cart-icon {
+	font-size: 40px;
+}
+.header {
+	display: flex;
+	padding: 20px;
+	background-color: rgb(255, 128, 0);
+	align-items: center;
+	color: white;
+	justify-content: space-between;
+}
+.menuu .btn{
+	background-color: rgb(255, 128, 0) !important;
+}
+.menuu .btn:hover{
+background-color: orangered !important;
 }

@@ -10,12 +10,7 @@
 <link rel="stylesheet" type="text/css" href="../css/home.css">
 <%@include file="../component/allcss.jsp"%>
 <style type="text/css">
-body {
-	font-family: Arial, sans-serif;
-	margin: 0;
-	padding: 0;
-	background-color: #f4f4f4;
-}
+
 
 .activee {
 	background-color: white;
@@ -77,7 +72,7 @@ body {
 	cursor: pointer;
 	border: 1px solid #ccc;
 	border-radius: 5px;
-	background-color: #007bff;
+	background-color: darkorange;
 	color: white;
 	margin-right: 10px;
 }
@@ -90,7 +85,8 @@ body {
 }
 
 .button:hover {
-	background-color: #00b8ff;
+	background-color: orangered;
+	color: white;
 }
 .form{
 padding:10px

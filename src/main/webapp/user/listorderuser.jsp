@@ -1,16 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
+<%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page isELIgnored="false"%>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Danh sách đơn hàng</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart</title>
+<link rel="stylesheet" type="text/css" href="../css/home.css">
+<%@include file="../component/allcss.jsp"%>
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-    }
+.activee {
+	background-color: white;
+	color: rgb(255, 128, 0) !important;
+}
+
+.search-button {
+	border: none;
+	background: none;
+	cursor: pointer;
+	padding: 0;
+}
 
     .button {
         display: inline-block;
@@ -20,19 +30,17 @@
         cursor: pointer;
         border: 1px solid #ccc;
         border-radius: 5px;
-        background-color: #007bff;
+        background-color: rgb(255, 128, 0);
         color: white;
     }
 
     .button:hover {
-        background-color: #00b8ff;
+        background-color:orangered !important;
+	color: white !important;
     }
 
     h1 {
         text-align: center;
-        background-color: #007bff;
-        color: #fff;
-        padding: 30px 0;
         margin: 0 0 30px 0;
     }
 
@@ -53,7 +61,7 @@
     }
 
     th {
-        background-color: #007bff;
+        background-color: rgb(255, 128, 0);
         color: #fff;
     }
 
@@ -65,6 +73,7 @@
 </style>
 </head>
 <body>
+	<%@include file="../component/header.jsp"%>
     <h1>Danh sách đơn hàng</h1>
     <center>
     <a class="button" href="/dien_thoai3/user/userpage">Back</a>
@@ -88,7 +97,6 @@
                     <td>${c.address}</td>
                     <td>${c.status}</td>
                     <td class="action-buttons">
-                        <a class="button" href="">Update</a>
                         <a class="button" href="/dien_thoai3/user/orderdetailuser?oid=${id}" >Xem chi tiết đơn</a>
                     </td>
                 </tr>
@@ -96,5 +104,6 @@
         </table>
         <br>
     </center>
+    <%@include file="../component/footer.jsp"%>
 </body>
 </html>
