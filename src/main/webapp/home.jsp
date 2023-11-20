@@ -24,28 +24,39 @@
 </style>
 <body>
 
-	<c:if test="${not empty succMsg }">
-		<div class="toast" role="alert" aria-live="assertive"
-			aria-atomic="true">
-			<div class="toast-header">
-				<strong class="me-auto">Thông báo</strong>
-				<button type="button" class="btn-close" data-bs-dismiss="toast"
-					aria-label="Close"></button>
+
+
+	<%@include file="component/header.jsp"%>
+	<c:if test="${empty requestScope.cid and empty requestScope.key}">
+		<div class="banner">
+			<div class="banner-content">
+				<h2>Chào mừng đến với MOBILE SHOP</h2>
+				<p>Mua sắm trực tuyến với hàng ngàn sản phẩm đa dạng và chất
+					lượng.</p>
 			</div>
-			<div class="toast-body">${succMsg}</div>
 		</div>
+	</c:if>
+		<c:if test="${not empty succMsg }">
 
 		<script type="text/javascript">
-			$(document).ready(
-					function() {
-						var myToast = new bootstrap.Toast(document
-								.querySelector('.toast'));
-						myToast.show();
-
-						$('.btn-close').on('click', function() {
-							myToast.hide();
-						});
-					});
+		toastr.options = {
+				  "closeButton": true,
+				  "debug": false,
+				  "newestOnTop": false,
+				  "progressBar": true,
+				  "positionClass": "toast-top-center",
+				  "preventDuplicates": false,
+				  "onclick": null,
+				  "showDuration": "300",
+				  "hideDuration": "1000",
+				  "timeOut": "2000",
+				  "extendedTimeOut": "1000",
+				  "showEasing": "swing",
+				  "hideEasing": "linear",
+				  "showMethod": "fadeIn",
+				  "hideMethod": "fadeOut"
+				}
+			toastr.success('${succMsg}');
 		</script>
 		<c:remove var="succMsg" scope="session" />
 	</c:if>
@@ -73,17 +84,6 @@
 					});
 		</script>
 		<c:remove var="failedMsg" scope="session" />
-	</c:if>
-
-	<%@include file="component/header.jsp"%>
-	<c:if test="${empty requestScope.cid and empty requestScope.key}">
-		<div class="banner">
-			<div class="banner-content">
-				<h2>Chào mừng đến với MOBILE SHOP</h2>
-				<p>Mua sắm trực tuyến với hàng ngàn sản phẩm đa dạng và chất
-					lượng.</p>
-			</div>
-		</div>
 	</c:if>
 
 
