@@ -1,31 +1,28 @@
-package adminController;
+package userController;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.Products;
-
 import java.io.IOException;
-import java.util.List;
 
-import dal.ProductDAO;
+import dal.OrderDAO;
 
-
-public class ListProductServlet extends HttpServlet {
-
-	
+/**
+ * Servlet implementation class OrderServlet
+ */
+public class OrderServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ProductDAO dao = new ProductDAO();
-		List<Products> list = dao.getAllByAd();
-		request.setAttribute("list", list);
-		request.getRequestDispatcher("/admin/listproduct.jsp").forward(request, response);
+		int oid = Integer.parseInt(request.getParameter("oid"));
+		OrderDAO dao = new OrderDAO();
+		dao.completeOrder(oid);
+		response.sendRedirect(request.getHeader("referer"));
 	}
 
-
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		
 	}
 
 }

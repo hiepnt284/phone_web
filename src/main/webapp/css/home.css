@@ -63,15 +63,7 @@
 	border-radius: 5px 0 0 5px;
 }
 
-.banner {
-	background-image: url("../images/banner1.jpg");
-	background-size: cover;
-	background-position: center;
-	height: 400px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
+
 
 .banner-content {
 	text-align: center;
@@ -216,3 +208,5 @@ ul li a {
 	margin-right: 10px;
 	color: white;
 }
+
+	

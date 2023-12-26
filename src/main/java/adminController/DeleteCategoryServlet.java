@@ -5,22 +5,28 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.Products;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
-import java.util.List;
 
+import dal.CategoryDAO;
 import dal.ProductDAO;
 
 
-public class ListProductServlet extends HttpServlet {
+public class DeleteCategoryServlet extends HttpServlet {
 
-	
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ProductDAO dao = new ProductDAO();
-		List<Products> list = dao.getAllByAd();
-		request.setAttribute("list", list);
-		request.getRequestDispatcher("/admin/listproduct.jsp").forward(request, response);
+		int id = Integer.parseInt(request.getParameter("id")) ;
+		CategoryDAO dao = new CategoryDAO();
+		boolean f = dao.deleteCategory(id);
+		HttpSession session = request.getSession();
+		if(f) {
+			session.setAttribute("succMsg", "delete thanh cong");
+		}else {
+			session.setAttribute("failedMsg", "delete that bai");
+		}
+		response.sendRedirect("/dien_thoai3/admin/listcategory");
 	}
 
 

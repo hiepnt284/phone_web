@@ -56,8 +56,10 @@
 
         h1 {
             text-align: center;
-            padding: 10px;
-            
+            margin-top:10px;
+            margin-left:550px;
+            display: inline-block;
+			border-bottom: 10px solid rgb(255, 128, 0);
             
         }
 
@@ -73,7 +75,7 @@
             padding: 20px;
             border: 2px solid #ccc;
             border-radius: 5px;
-            margin-bottom: 20px;
+            margin-top: 20px;
         }
 
 
@@ -123,30 +125,16 @@
 </head>
 <body>
 <%@include file="headeradmin.jsp"%>
-	<h1>Edit Product</h1>
+	<h1>Chỉnh sửa danh mục</h1>
 	<c:set var="c" value="${requestScope.p}"/>
-	<form action="/dien_thoai3/admin/editproduct" method="post">
+	<form action="/dien_thoai3/admin/editcategory" method="post">
 		<label>ID:</label> <input type="number" name="id" readonly="readonly" value="${c.id}"/><br/><br/>
-		<label>Tên sản phẩm:</label><input type="text" name="name" value="${c.name}"/><br/><br/>
-		<label>Giá sản phẩm:</label><input type="number" name="price" value="${c.price}"/><br/><br/>
-		<label>Số lượng:</label><input type="number" name="quantity" value="${c.quantity}"/><br/><br/>
-		<label>Ngày ra mắt:</label><input type="date" name="releasedate" value="${c.releaseDate}"/><br/><br/>
-		<label>Mô tả:</label><input type="text" name="describe" value="${c.describe}"/><br/><br/>
-		<label>Trạng thái:</label>
-		<select name="status">
-		    <c:forEach var="statusOption" items="${['active', 'inactive']}">
-		        <option value="${statusOption}" 
-		            <c:if test="${c.status eq statusOption}">
-		                selected="selected"
-		            </c:if>
-		        >
-		            ${statusOption}
-		        </option>
-		    </c:forEach>
-		</select>
+		<label>Tên danh mục:</label><input type="text" name="name" value="${c.name}"/><br/><br/>
+		<label>Mô tả:</label> <textarea id="describe" name="describe" rows="4" cols="50">${c.describe}</textarea><br/><br/>
+<br/><br/>
 
 		<center>
-		<a class="button" href="/dien_thoai3/admin/listproduct">Back</a>
+		<a class="button" href="/dien_thoai3/admin/listcategory">Back</a>
 		<input type="submit" value="Update"/>
 		<center/>
 	</form>

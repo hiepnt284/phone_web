@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>User Dashboard</title>
 <link rel="stylesheet" type="text/css" href="../css/home.css">
+<link rel="stylesheet" type="text/css" href="../css/header.css">
 <style type="text/css">
 .menuu {
 	margin-top: 200px;
@@ -24,16 +25,7 @@
 	padding:20px !important;
 	background-color: rgb(255, 128, 0) !important;
 }
-.activee {
-	background-color: white;
-	color: rgb(255, 128, 0) !important;
-}
-.search-button {
-	border: none;
-	background: none;
-	cursor: pointer;
-	padding: 0;
-}
+
 </style>
 <%@include file="../component/allcss.jsp"%>
 </head>

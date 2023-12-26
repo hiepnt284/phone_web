@@ -28,6 +28,7 @@ public class ShowCartServlet extends HttpServlet {
 		int uid = u.getId();
 		CartDAO dao = new CartDAO();
 		ProductDAO pdao = new ProductDAO();
+		dao.cartRealtime(uid);
 		List<Cart> list = dao.getAll(uid);
 		for(Cart c:list) {
 			c.setName(

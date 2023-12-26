@@ -10,24 +10,17 @@ public class Products {
 	private String describe,image;
 	private Category category;
 	private String status;
+	private int quantity;
 	
 	public Products() {
 	}
 	
 	
 	
-	public Products(int id, String name, double price, Date releaseDate, String describe, String status) {
+	public Products(int id, String name, double price, Date releaseDate, String describe, String image,
+			Category category, String status, int quantity) {
+		super();
 		this.id = id;
-		this.name = name;
-		this.price = price;
-		this.releaseDate = releaseDate;
-		this.describe = describe;
-		this.status = status;
-	}
-
-
-
-	public Products(String name, double price, Date releaseDate, String describe, String image, Category category, String status) {
 		this.name = name;
 		this.price = price;
 		this.releaseDate = releaseDate;
@@ -35,6 +28,32 @@ public class Products {
 		this.image = image;
 		this.category = category;
 		this.status = status;
+		this.quantity = quantity;
+	}
+
+
+
+	public Products(int id, String name, double price, Date releaseDate, String describe, String status,int quantity) {
+		this.id = id;
+		this.name = name;
+		this.price = price;
+		this.releaseDate = releaseDate;
+		this.describe = describe;
+		this.status = status;
+		this.quantity = quantity;
+	}
+
+
+
+	public Products(String name, double price, Date releaseDate, String describe, String image, Category category, String status,int quantity) {
+		this.name = name;
+		this.price = price;
+		this.releaseDate = releaseDate;
+		this.describe = describe;
+		this.image = image;
+		this.category = category;
+		this.status = status;
+		this.quantity = quantity;
 	}
 
 	public Products(int id, String name, double price, Date releaseDate, String describe, String image,
@@ -115,11 +134,27 @@ public class Products {
 
 
 
+	public int getQuantity() {
+		return quantity;
+	}
+
+
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "Products [id=" + id + ", name=" + name + ", price=" + price + ", releaseDate=" + releaseDate
-				+ ", describe=" + describe + ", image=" + image + ", category=" + category + ", status=" + status + "]";
+				+ ", describe=" + describe + ", image=" + image + ", category=" + category + ", status=" + status
+				+ ", quantity=" + quantity + "]";
 	}
+
+
+
 
 
 

@@ -8,14 +8,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Profile</title>
 <link rel="stylesheet" type="text/css" href="../css/home.css">
+<link rel="stylesheet" type="text/css" href="../css/header.css">
 <%@include file="../component/allcss.jsp"%>
 <style>
 
 
 h1 {
 	text-align: center;
-	padding: 30px 0;
-	margin: 0;
+	margin-top:10px;
+            margin-left:650px;
+            display: inline-block;
+			border-bottom: 10px solid rgb(255, 128, 0);
 }
 
 .form {

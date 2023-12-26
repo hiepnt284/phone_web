@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import model.Cart;
 import model.Products;
 
@@ -28,10 +29,17 @@ public class EditCartServlet extends HttpServlet {
 		int pid = Integer.parseInt(request.getParameter("pid"));
 		String action = request.getParameter("action");
 		CartDAO dao = new CartDAO();
+		HttpSession session = request.getSession();
 		ProductDAO pdao = new ProductDAO();
+		Products p = pdao.findById(pid);
 		Cart cart = dao.findCart(uid, pid);
 		if ("increase".equals(action)) {
-	        dao.addOne(cart);
+			if(cart.getQuantity()<p.getQuantity()) {
+				dao.addOne(cart);
+			}else {
+				session.setAttribute("failedMsg", "vượt quá số lượng trong kho");
+			}
+	        
 	    } else if ("decrease".equals(action)) {
 	        dao.minusOne(cart);
 	        if(dao.findCart(uid, pid).getQuantity()==0) {
@@ -40,21 +48,22 @@ public class EditCartServlet extends HttpServlet {
 	    } else if ("remove".equals(action)) {
 	    	dao.remove(cart);
 	    }
-		int count = dao.countInCart(uid);
-		List<Cart> list = dao.getAll(uid);
-		for(Cart c:list) {
-			c.setName(
-					pdao.
-					findById(c.getPid())
-					.getName());
-			c.setPrice(
-					pdao.
-					findById(c.getPid())
-					.getPrice());
-		}
-		request.setAttribute("count", count);
-		request.setAttribute("list", list);
-		request.getRequestDispatcher("/user/cart.jsp").forward(request, response);
+		response.sendRedirect(request.getHeader("referer"));
+//		int count = dao.countInCart(uid);
+//		List<Cart> list = dao.getAll(uid);
+//		for(Cart c:list) {
+//			c.setName(
+//					pdao.
+//					findById(c.getPid())
+//					.getName());
+//			c.setPrice(
+//					pdao.
+//					findById(c.getPid())
+//					.getPrice());
+//		}
+//		request.setAttribute("count", count);
+//		request.setAttribute("list", list);
+//		request.getRequestDispatcher("/user/cart.jsp").forward(request, response);
 	}
 
 }

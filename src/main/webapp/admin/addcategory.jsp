@@ -58,7 +58,6 @@
             text-align: center;
             padding: 10px;
             
-            
         }
 
         h3 {
@@ -123,32 +122,24 @@
 </head>
 <body>
 <%@include file="headeradmin.jsp"%>
-	<h1>Edit Product</h1>
-	<c:set var="c" value="${requestScope.p}"/>
-	<form action="/dien_thoai3/admin/editproduct" method="post">
-		<label>ID:</label> <input type="number" name="id" readonly="readonly" value="${c.id}"/><br/><br/>
-		<label>Tên sản phẩm:</label><input type="text" name="name" value="${c.name}"/><br/><br/>
-		<label>Giá sản phẩm:</label><input type="number" name="price" value="${c.price}"/><br/><br/>
-		<label>Số lượng:</label><input type="number" name="quantity" value="${c.quantity}"/><br/><br/>
-		<label>Ngày ra mắt:</label><input type="date" name="releasedate" value="${c.releaseDate}"/><br/><br/>
-		<label>Mô tả:</label><input type="text" name="describe" value="${c.describe}"/><br/><br/>
-		<label>Trạng thái:</label>
-		<select name="status">
-		    <c:forEach var="statusOption" items="${['active', 'inactive']}">
-		        <option value="${statusOption}" 
-		            <c:if test="${c.status eq statusOption}">
-		                selected="selected"
-		            </c:if>
-		        >
-		            ${statusOption}
-		        </option>
-		    </c:forEach>
-		</select>
-
+	<h1>Thêm danh mục</h1>
+	<c:if test="${not empty succMsg }">
+        	<h3 style="color:green">${succMsg}</h3>
+        	<c:remove var="succMsg" scope="session"/>
+        </c:if>
+        <c:if test="${not empty failedMsg }">
+        	<h3 style="color:red">${failedMsg}</h3>
+        	<c:remove var="failedMsg" scope="session"/>
+        </c:if>
+	<form action="/dien_thoai3/admin/addcategory" method="post" >
+		<label>Tên danh mục:</label> <input type="text" name="name"/><br/><br/>
+		<label>Mô tả:</label><textarea id="describe" name="describe" rows="4" cols="50"></textarea><br/><br/>
 		<center>
-		<a class="button" href="/dien_thoai3/admin/listproduct">Back</a>
-		<input type="submit" value="Update"/>
+		<a class="button" href="/dien_thoai3/admin/listcategory">Back</a>
+		<input type="submit" value="Save"/>
 		<center/>
 	</form>
+
+
 </body>
 </html>

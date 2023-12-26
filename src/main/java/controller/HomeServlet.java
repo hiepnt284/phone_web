@@ -27,15 +27,22 @@ public class HomeServlet extends HttpServlet {
 			CategoryDAO cdao = new CategoryDAO();
 			List<Category> listc = cdao.getAll();
 			List<Products> listp = pdao.getAll();
+			List<Products> listbs = pdao.getBestSeller();
+			List<Products> listav = pdao.getAdvancePro();
+			List<Products> listch = pdao.getCheapPro();
 			HttpSession session = request.getSession();
 			User u = (User)session.getAttribute("user");
 			if(u!=null) {
 				CartDAO cartdao = new CartDAO();
+				cartdao.cartRealtime(u.getId());
 				int count = cartdao.countInCart(u.getId());
 				request.setAttribute("count", count);
 			}
 			request.setAttribute("listp", listp);
 			request.setAttribute("listc", listc);
+			request.setAttribute("listbs", listbs);
+			request.setAttribute("listav", listav);
+			request.setAttribute("listch", listch);
 			request.getRequestDispatcher("/home.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();

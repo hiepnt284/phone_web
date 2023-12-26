@@ -8,19 +8,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cart</title>
 <link rel="stylesheet" type="text/css" href="../css/home.css">
+<link rel="stylesheet" type="text/css" href="../css/header.css">
 <%@include file="../component/allcss.jsp"%>
 <style type="text/css">
-.activee {
-	background-color: white;
-	color: rgb(255, 128, 0) !important;
-}
 
-.search-button {
-	border: none;
-	background: none;
-	cursor: pointer;
-	padding: 0;
-}
 
 .container {
 	max-width: 800px;

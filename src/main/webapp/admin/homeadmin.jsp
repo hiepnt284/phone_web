@@ -68,17 +68,17 @@ background-color: orangered !important;
 
 
     <div class="menuu">
-        <a href="/dien_thoai3/admin/addproduct" class="btn btn-primary">
-        	<i class="fa-solid fa-square-plus icon-feature"></i>
-        	<h2>Thêm sản phẩm</h2>
+        <a href="/dien_thoai3/admin/listcategory" class="btn btn-primary">
+        	<i class="fa-solid fa-list-ul icon-feature"></i>
+        	<h2>Quản lý danh mục</h2>
         </a>
         <a href="/dien_thoai3/admin/listproduct" class="btn btn-primary">
-	        <i class="fa-solid fa-list-ul icon-feature"></i>
-	        <h2>Danh Sách Sản Phẩm</h2>
+	        <i class="fa-solid fa-mobile icon-feature"></i>
+	        <h2>Quản lý Sản Phẩm</h2>
         </a>
         <a href="/dien_thoai3/admin/listorder" class="btn btn-primary">
 	        <i class="fa-solid fa-cubes icon-feature" ></i>
-	        <h2>Danh Sách Đơn Hàng</h2>
+	        <h2>Quản lý Đơn Hàng</h2>
         </a>
     </div>
 </body>

@@ -8,19 +8,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Product Detail</title>
 <link rel="stylesheet" type="text/css" href="css/home.css">
+<link rel="stylesheet" type="text/css" href="css/header.css">
 <%@include file="component/allcss.jsp"%>
 <style type="text/css">
 
-.activee {
-	background-color: white;
-	color: rgb(255, 128, 0) !important;
-}
-.search-button {
-	border: none;
-	background: none;
-	cursor: pointer;
-	padding: 0;
-}
+
 .product-containerr {
 	width: 1000px;
 	margin: 20px auto;
@@ -48,6 +40,54 @@
 	<%@include file="component/header.jsp"%>
 	<c:set var="p" value="${requestScope.p}" />
 
+		<c:if test="${not empty succMsg }">
+
+		<script type="text/javascript">
+		toastr.options = {
+				  "closeButton": true,
+				  "debug": false,
+				  "newestOnTop": false,
+				  "progressBar": true,
+				  "positionClass": "toast-top-center",
+				  "preventDuplicates": false,
+				  "onclick": null,
+				  "showDuration": "300",
+				  "hideDuration": "1000",
+				  "timeOut": "2000",
+				  "extendedTimeOut": "1000",
+				  "showEasing": "swing",
+				  "hideEasing": "linear",
+				  "showMethod": "fadeIn",
+				  "hideMethod": "fadeOut"
+				}
+			toastr.success('${succMsg}');
+		</script>
+		<c:remove var="succMsg" scope="session" />
+	</c:if>
+	<c:if test="${not empty failedMsg }">
+		<script type="text/javascript">
+		toastr.options = {
+				  "closeButton": true,
+				  "debug": false,
+				  "newestOnTop": false,
+				  "progressBar": true,
+				  "positionClass": "toast-top-center",
+				  "preventDuplicates": false,
+				  "onclick": null,
+				  "showDuration": "300",
+				  "hideDuration": "1000",
+				  "timeOut": "2000",
+				  "extendedTimeOut": "1000",
+				  "showEasing": "swing",
+				  "hideEasing": "linear",
+				  "showMethod": "fadeIn",
+				  "hideMethod": "fadeOut"
+				}
+			toastr.error('${failedMsg}');
+		</script>
+		<c:remove var="failedMsg" scope="session" />
+	</c:if>
+
 	<div class="product-containerr">
 		<img src="images/${p.image}" alt="Product Image" class="product-image">
 		<div class="product-info">
@@ -60,8 +100,10 @@
 			</p>
 			<p>
 				<strong>Mô tả:</strong>${p.describe}</p>
+			<p>
+				<strong>Tình trạng: </strong>${(p.quantity > 0) ? 'còn hàng' : 'hết hàng'}</p>
 
-			<c:if test="${not empty user }">
+			<c:if test="${p.quantity>0 }">
 				<a class="btn btn-primary"
 					href="/dien_thoai3/user/buynow?uid=${user.id}&pid=${p.id }">
 					Mua ngay</a>
@@ -69,10 +111,6 @@
 					href="/dien_thoai3/user/addtocart?uid=${user.id}&pid=${p.id }"
 					class="btn btn-success"> Add to cart </a>
 
-			</c:if>
-			<c:if test="${empty user }">
-				<a class="btn btn-primary" href="/dien_thoai3/login.jsp ">Mua ngay</a>
-				<a href="/dien_thoai3/login.jsp" class="btn btn-success"> Add to cart </a>
 			</c:if>
 		</div>
 	</div>

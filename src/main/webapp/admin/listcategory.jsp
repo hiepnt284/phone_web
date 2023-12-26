@@ -58,7 +58,6 @@
             text-align: center;
             padding: 10px;
             
-            
         }
 
         h3 {
@@ -66,27 +65,7 @@
             text-align: center;
         }
 
-        form {
-            background-color: #fff;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 2px solid #ccc;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-
-
-        input[type="text"],
-        input[type="date"],
-        input[type="number"],
-        select {
-            width: 75%;
-            padding: 10px;
-            margin: 5px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
+        
 
         input[type="submit"] {
             background-color: rgb(255, 128, 0) !important;
@@ -110,7 +89,6 @@
         border-radius: 5px;
         background-color: rgb(255, 128, 0) !important;
         color: white;
-    	margin-right:20px;
     }
 
     	.button:hover {
@@ -119,36 +97,84 @@
     label {
 	width: 120px;
 }
+
+
+    h1 {
+        text-align: center;
+    }
+
+    table {
+    	margin-top:20px;
+        width: 90%;
+        border-collapse: collapse;
+        background-color: #fff;
+    }
+
+    table, th, td {
+        border: 1px solid #ccc;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        background-color: rgb(255, 128, 0);
+        color: #fff;
+    }
+
+    .action-buttons {
+        text-align: center;
+        width: 180px;
+    }
+
     </style>
+
+<script type="text/javascript">
+    function doDelete(id) {
+        if (confirm("Are you sure to delete category with id =" + id)) {
+            window.location = "/dien_thoai3/admin/deletecategory?id=" + id;
+        }
+    }
+</script>
 </head>
 <body>
 <%@include file="headeradmin.jsp"%>
-	<h1>Edit Product</h1>
-	<c:set var="c" value="${requestScope.p}"/>
-	<form action="/dien_thoai3/admin/editproduct" method="post">
-		<label>ID:</label> <input type="number" name="id" readonly="readonly" value="${c.id}"/><br/><br/>
-		<label>Tên sản phẩm:</label><input type="text" name="name" value="${c.name}"/><br/><br/>
-		<label>Giá sản phẩm:</label><input type="number" name="price" value="${c.price}"/><br/><br/>
-		<label>Số lượng:</label><input type="number" name="quantity" value="${c.quantity}"/><br/><br/>
-		<label>Ngày ra mắt:</label><input type="date" name="releasedate" value="${c.releaseDate}"/><br/><br/>
-		<label>Mô tả:</label><input type="text" name="describe" value="${c.describe}"/><br/><br/>
-		<label>Trạng thái:</label>
-		<select name="status">
-		    <c:forEach var="statusOption" items="${['active', 'inactive']}">
-		        <option value="${statusOption}" 
-		            <c:if test="${c.status eq statusOption}">
-		                selected="selected"
-		            </c:if>
-		        >
-		            ${statusOption}
-		        </option>
-		    </c:forEach>
-		</select>
-
-		<center>
-		<a class="button" href="/dien_thoai3/admin/listproduct">Back</a>
-		<input type="submit" value="Update"/>
-		<center/>
-	</form>
+    <h1>Danh sách danh mục</h1>
+    
+    <center>
+    	<a class="button" href="/dien_thoai3/admin/homeadmin.jsp">Back</a>
+    	<a class="button" href="/dien_thoai3/admin/addcategory.jsp">Thêm danh mục</a>
+	    <c:if test="${not empty succMsg }">
+	        	<h3 style="color:green">${succMsg}</h3>
+	        	<c:remove var="succMsg" scope="session"/>
+	        </c:if>
+	        <c:if test="${not empty failedMsg }">
+	        	<h3 style="color:red">${failedMsg}</h3>
+	        	<c:remove var="failedMsg" scope="session"/>
+	    </c:if>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Tên</th>
+                <th>Mô tả</th>
+                <th>Action</th>
+            </tr>
+            <c:forEach items="${requestScope.list}" var="c">
+                <c:set var="id" value="${c.id}" />
+                <tr>
+                    <td>${id}</td>
+                    <td>${c.name}</td>
+                    <td>${c.describe}</td>
+                    <td class="action-buttons">
+                        <a class="button" href="/dien_thoai3/admin/editcategory?id=${id}">Update</a>
+                        <a class="button" href="#" onclick="doDelete('${id}')">Delete</a>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
+        <br>
+    </center>
 </body>
 </html>

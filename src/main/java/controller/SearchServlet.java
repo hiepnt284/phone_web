@@ -38,6 +38,7 @@ public class SearchServlet extends HttpServlet {
 			request.setAttribute("key", key);
 			request.setAttribute("listp", listp);
 			request.setAttribute("listc", listc);
+			request.setAttribute("a", "a");
 			request.getRequestDispatcher("/home.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();

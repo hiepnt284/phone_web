@@ -9,7 +9,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.Part;
 import model.Category;
-import model.Products;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,50 +20,34 @@ import dal.DAO;
 import dal.ProductDAO;
 
 @MultipartConfig
-public class AddProductServlet extends HttpServlet {
+public class AddCategoryServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		DAO dao = new DAO();
-		List<Category> listC = dao.getAll();
-		request.setAttribute("listC", listC);
-		request.getRequestDispatcher("/admin/addproduct.jsp").forward(request, response);
+		
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 	        String name = request.getParameter("name");
-	        double price = Double.parseDouble(request.getParameter("price"));
-	        int quantity = Integer.parseInt(request.getParameter("quantity"));
-            Date releasedate = Date.valueOf(request.getParameter("releasedate"));
+	        
             String describe = request.getParameter("describe");
-            int cid = Integer.parseInt(request.getParameter("cid"))  ;
-            String status = request.getParameter("status");
-            Part part = request.getPart("img");
-            String fileName = part.getSubmittedFileName();
-            System.out.println(fileName);
+            
             
             CategoryDAO cdao = new CategoryDAO();
             
-            Products p = new Products(name,price,releasedate,describe,fileName,cdao.getCategoryById(cid),status,quantity);
+            Category c = new Category(name,describe);
             
-            ProductDAO dao = new ProductDAO();
             
-            boolean f = dao.addProduct(p);
+            boolean f = cdao.addCategory(c);
             
             HttpSession session = request.getSession();
             if(f) {
-            	String path = getServletContext().getRealPath("")+"images";
-            	System.out.println(path);
-            	File file = new File(path);
-            	
-            	part.write(path + File.separator+fileName);
-            	
             	session.setAttribute("succMsg", "them thanh cong");
-            	response.sendRedirect("/dien_thoai3/admin/listproduct");
+            	response.sendRedirect("/dien_thoai3/admin/listcategory");
             }else {
             	session.setAttribute("failedMsg", "them that bai");
-            	response.sendRedirect("/dien_thoai3/admin/listproduct");
+            	response.sendRedirect("/dien_thoai3/admin/listcategory");
             }
              
 		} catch (Exception e) {

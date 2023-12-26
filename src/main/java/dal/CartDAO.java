@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import model.Cart;
 import model.Products;
@@ -144,5 +145,34 @@ public class CartDAO extends dbContext{
 		}
 		return false;
 	}
+	public void cartRealtime(int uid) {
+	    List<Cart> list = this.getAll(uid);
+	    ProductDAO pdao = new ProductDAO();
+	    Iterator<Cart> iterator = list.iterator();
+	    
+	    while (iterator.hasNext()) {
+	        Cart c = iterator.next();
+	        int pe = pdao.findById(c.getPid()).getQuantity();
+	        
+	        if (pe > 0) {
+	            if (c.getQuantity() > pe) {
+	                c.setQuantity(pe);
+	            }
 
+	            try {
+	                String sql = "update Carts set quantity = ? where uid = ? and pid = ?";
+	                PreparedStatement st = con.prepareStatement(sql);
+	                st.setInt(1, c.getQuantity());
+	                st.setInt(2, c.getUid());
+	                st.setInt(3, c.getPid());
+	                st.executeUpdate();
+	            } catch (Exception e) {
+	                e.printStackTrace();
+	            }
+	        } else {
+	            iterator.remove();
+	            this.remove(c);
+	        }
+	    }
+	}
 }

@@ -166,8 +166,27 @@
                     <td>${c.address}</td>
                     <td>${c.status}</td>
                     <td class="action-buttons">
-                        <a class="button" href="">Update</a>
-                        <a class="button" href="/dien_thoai3/admin/listorderdetail?oid=${id}" >Xem chi tiết đơn</a>
+                    <c:if test="${c.status eq 'Chờ xác nhận'}">
+               			<a class="button" href="/dien_thoai3/admin/handleorder?oid=${id}&act=accept">Xác nhận</a>
+                        <a class="button" href="/dien_thoai3/admin/listorderdetail?oid=${id}" >Chi tiết</a>
+                        <a class="button" href="/dien_thoai3/admin/handleorder?oid=${id}&act=cancel">Hủy</a>
+           			</c:if>
+           			<c:if test="${c.status eq 'Đã xác nhận'}">
+               			<a class="button" href="/dien_thoai3/admin/handleorder?oid=${id}&act=delivery">Giao hàng</a>
+                        <a class="button" href="/dien_thoai3/admin/listorderdetail?oid=${id}" >Chi tiết</a>
+           			</c:if>
+           			<c:if test="${c.status eq 'Đã hủy'}">
+                        <a class="button" href="/dien_thoai3/admin/listorderdetail?oid=${id}" >Chi tiết</a>
+           			</c:if>
+           			<c:if test="${c.status eq 'Đang giao'}">
+               		
+                        <a class="button" href="/dien_thoai3/admin/listorderdetail?oid=${id}" >Chi tiết</a>
+           			</c:if>
+           			<c:if test="${c.status eq 'Đã hoàn thành'}">
+               		
+                        <a class="button" href="/dien_thoai3/admin/listorderdetail?oid=${id}" >Chi tiết</a>
+           			</c:if>
+                        
                     </td>
                 </tr>
             </c:forEach>

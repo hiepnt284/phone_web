@@ -145,6 +145,7 @@
     
     <center>
     	<a class="button" href="/dien_thoai3/admin/homeadmin.jsp">Back</a>
+    	<a class="button" href="/dien_thoai3/admin/addproduct">Thêm sản phẩm</a>
 	    <c:if test="${not empty succMsg }">
 	        	<h3 style="color:green">${succMsg}</h3>
 	        	<c:remove var="succMsg" scope="session"/>
@@ -158,6 +159,7 @@
                 <th>ID</th>
                 <th>Tên</th>
                 <th>Ảnh</th>
+                <th>Số lượng</th>
                 <th>Giá</th>
                 <th>Ngày ra mắt</th>
                 <th>Mô tả</th>
@@ -171,6 +173,7 @@
                     <td>${id}</td>
                     <td>${c.name}</td>
                     <td><img style="width: 70px; height: auto" alt="anh" src="../images/${c.image }"></td>
+                    <td>${c.quantity}</td>
                     <td>${c.price}</td>
                     <td>${c.releaseDate}</td>
                     <td>${c.describe}</td>

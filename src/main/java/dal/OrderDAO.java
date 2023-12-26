@@ -119,4 +119,72 @@ public class OrderDAO extends dbContext{
 		}
 		return list;
 	}
+	public boolean cancelOrder(int oid) {
+		String sql ="update Orders set status=? where id=?";
+		try {
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, "Đã hủy");
+			st.setInt(2, oid);
+			
+			int i=st.executeUpdate();
+			if(i==1) {
+				return true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+}
+	public boolean acceptOrder(int oid) {
+		String sql ="update Orders set status=? where id=?";
+		try {
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, "Đã xác nhận");
+			st.setInt(2, oid);
+			
+			int i=st.executeUpdate();
+			if(i==1) {
+				return true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+}
+	public boolean deliveryOrder(int oid) {
+		String sql ="update Orders set status=? where id=?";
+		try {
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, "Đang giao");
+			st.setInt(2, oid);
+			
+			int i=st.executeUpdate();
+			if(i==1) {
+				return true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+}
+	public boolean completeOrder(int oid) {
+		String sql ="update Orders set status=? where id=?";
+		try {
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, "Đã hoàn thành");
+			st.setInt(2, oid);
+			
+			int i=st.executeUpdate();
+			if(i==1) {
+				return true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+}
 }
