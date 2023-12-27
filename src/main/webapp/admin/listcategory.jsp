@@ -158,7 +158,6 @@
             <tr>
                 <th>ID</th>
                 <th>Tên</th>
-                <th>Mô tả</th>
                 <th>Action</th>
             </tr>
             <c:forEach items="${requestScope.list}" var="c">
@@ -166,7 +165,6 @@
                 <tr>
                     <td>${id}</td>
                     <td>${c.name}</td>
-                    <td>${c.describe}</td>
                     <td class="action-buttons">
                         <a class="button" href="/dien_thoai3/admin/editcategory?id=${id}">Update</a>
                         <a class="button" href="#" onclick="doDelete('${id}')">Delete</a>

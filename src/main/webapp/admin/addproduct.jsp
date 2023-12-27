@@ -136,7 +136,7 @@
 		<label>Giá sản phẩm:</label><input type="number" name="price"/><br/><br/>
 		<label>Số lượng:</label><input type="number" name="quantity"/><br/><br/>
 		<label>Ngày ra mắt:</label><input type="date" name="releasedate"/><br/><br/>
-		<label>Mô tả:</label><input type="text" name="describe"/><br/><br/>
+		<label style="vertical-align: top; display: inline-block;">Mô tả:</label><textarea id="describe" name="describe" rows="4" cols="50"></textarea><br/><br/>
 		<label>Danh mục:</label>
 		<select name="cid">
 				<option  selected="selected">---</option>

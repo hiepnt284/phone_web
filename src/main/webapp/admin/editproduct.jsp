@@ -131,7 +131,7 @@
 		<label>Giá sản phẩm:</label><input type="number" name="price" value="${c.price}"/><br/><br/>
 		<label>Số lượng:</label><input type="number" name="quantity" value="${c.quantity}"/><br/><br/>
 		<label>Ngày ra mắt:</label><input type="date" name="releasedate" value="${c.releaseDate}"/><br/><br/>
-		<label>Mô tả:</label><input type="text" name="describe" value="${c.describe}"/><br/><br/>
+		<label style="vertical-align: top; display: inline-block;">Mô tả:</label><textarea id="describe" name="describe" rows="6" cols="50">${c.describe}</textarea><br/><br/>
 		<label>Trạng thái:</label>
 		<select name="status">
 		    <c:forEach var="statusOption" items="${['active', 'inactive']}">
@@ -144,6 +144,8 @@
 		        </option>
 		    </c:forEach>
 		</select>
+		<br/>
+		<br/>
 
 		<center>
 		<a class="button" href="/dien_thoai3/admin/listproduct">Back</a>

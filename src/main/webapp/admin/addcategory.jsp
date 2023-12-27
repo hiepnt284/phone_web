@@ -133,7 +133,7 @@
         </c:if>
 	<form action="/dien_thoai3/admin/addcategory" method="post" >
 		<label>Tên danh mục:</label> <input type="text" name="name"/><br/><br/>
-		<label>Mô tả:</label><textarea id="describe" name="describe" rows="4" cols="50"></textarea><br/><br/>
+		<label style="vertical-align: top; display: inline-block;">Mô tả:</label ><textarea id="describe" name="describe" rows="4" cols="50"></textarea><br/><br/>
 		<center>
 		<a class="button" href="/dien_thoai3/admin/listcategory">Back</a>
 		<input type="submit" value="Save"/>

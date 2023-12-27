@@ -161,8 +161,6 @@
                 <th>Ảnh</th>
                 <th>Số lượng</th>
                 <th>Giá</th>
-                <th>Ngày ra mắt</th>
-                <th>Mô tả</th>
                 <th>Danh mục</th>
                 <th>Trạng thái</th>
                 <th>Action</th>
@@ -175,8 +173,6 @@
                     <td><img style="width: 70px; height: auto" alt="anh" src="../images/${c.image }"></td>
                     <td>${c.quantity}</td>
                     <td>${c.price}</td>
-                    <td>${c.releaseDate}</td>
-                    <td>${c.describe}</td>
                     <td>${c.category.name}</td>
                     <td>${c.status}</td>
                     <td class="action-buttons">

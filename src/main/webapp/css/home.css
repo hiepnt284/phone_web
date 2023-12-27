@@ -3,6 +3,7 @@
 	padding: 0;
 }
 
+
 .header {
 	display: flex;
 	justify-content: space-around;
@@ -133,12 +134,7 @@
 	background-color:orangered !important;
 	color: white !important;
 }
-.product-item {
-	width: 300px;
-	padding: 10px;
-	border: 1px solid black;
-	border-radius: 10px;
-}
+
 
 .product-item img {
 	width: 100%;

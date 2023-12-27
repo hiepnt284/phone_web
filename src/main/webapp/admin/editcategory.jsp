@@ -130,7 +130,7 @@
 	<form action="/dien_thoai3/admin/editcategory" method="post">
 		<label>ID:</label> <input type="number" name="id" readonly="readonly" value="${c.id}"/><br/><br/>
 		<label>Tên danh mục:</label><input type="text" name="name" value="${c.name}"/><br/><br/>
-		<label>Mô tả:</label> <textarea id="describe" name="describe" rows="4" cols="50">${c.describe}</textarea><br/><br/>
+		<label style="vertical-align: top; display: inline-block;">Mô tả:</label> <textarea id="describe" name="describe" rows="4" cols="50">${c.describe}</textarea><br/><br/>
 <br/><br/>
 
 		<center>

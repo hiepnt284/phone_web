@@ -52,7 +52,11 @@ public class LoginServlet extends HttpServlet {
 				us.setUsername("Admin");
 				session.setAttribute("admin", us);
 				response.sendRedirect("/dien_thoai3/admin/homeadmin.jsp");
-			}else {
+			}else if("admin".equals(username)&&!"123".equals(password)) {
+				session.setAttribute("failedMsg", "username or password sai");
+				response.sendRedirect("/dien_thoai3/login.jsp");
+			}
+			else {
 				User u = udao.login(username);		
 				if(u!=null) {
 					String hashedpass = u.getPassword();

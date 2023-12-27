@@ -35,6 +35,17 @@
 .modal-backdrop {
 	height:0;
 }
+body{
+	background-color: rgb(244,244,244);
+}
+.product-item {
+	width: 300px;
+	padding: 10px;
+	box-shadow: 0 4px 6px #00000029;
+    border-radius: 8px;
+    border: none;
+	background-color: white;
+}
 </style>
 <body>
 
