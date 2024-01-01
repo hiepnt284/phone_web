@@ -44,7 +44,7 @@ public class OrderDAO extends dbContext{
 	
 	public List<Order> getAll(){
 		List<Order> list = new ArrayList<>();
-		String sql = "select * from Orders";
+		String sql = "select * from Orders order by id desc";
 		try {
 			PreparedStatement st = con.prepareStatement(sql);
 			ResultSet rs = st.executeQuery();
@@ -95,7 +95,7 @@ public class OrderDAO extends dbContext{
 	
 	public List<Order> getOrderByUid(int uid){
 		List<Order> list = new ArrayList<>();
-		String sql = "select * from Orders where uid = ?";
+		String sql = "select * from Orders where uid = ? ORDER BY id DESC";
 		try {
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setInt(1, uid);

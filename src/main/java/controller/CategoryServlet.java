@@ -27,6 +27,7 @@ public class CategoryServlet extends HttpServlet {
 			ProductDAO pdao = new ProductDAO();
 			CategoryDAO cdao = new CategoryDAO();
 			List<Category> listc = cdao.getAll();
+			String namec = cdao.getCategoryById(cid).getName();
 			List<Products> listp = pdao.getProductsByCid(cid);
 			HttpSession session = request.getSession();
 			User u = (User)session.getAttribute("user");
@@ -38,6 +39,7 @@ public class CategoryServlet extends HttpServlet {
 			request.setAttribute("cid", cid);
 			request.setAttribute("listp", listp);
 			request.setAttribute("listc", listc);
+			request.setAttribute("namec", namec);
 			request.setAttribute("a", "a");
 			request.getRequestDispatcher("/home.jsp").forward(request, response);
 		} catch (Exception e) {

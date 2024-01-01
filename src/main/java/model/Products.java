@@ -19,7 +19,6 @@ public class Products {
 	
 	public Products(int id, String name, double price, Date releaseDate, String describe, String image,
 			Category category, String status, int quantity) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.price = price;
@@ -27,6 +26,17 @@ public class Products {
 		this.describe = describe;
 		this.image = image;
 		this.category = category;
+		this.status = status;
+		this.quantity = quantity;
+	}
+	
+	public Products(int id, String name, double price, Date releaseDate, String describe, String image, String status, int quantity) {
+		this.id = id;
+		this.name = name;
+		this.price = price;
+		this.releaseDate = releaseDate;
+		this.describe = describe;
+		this.image = image;
 		this.status = status;
 		this.quantity = quantity;
 	}

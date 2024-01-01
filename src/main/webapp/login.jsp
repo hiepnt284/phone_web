@@ -11,9 +11,7 @@ body {
 	font-family: Arial, sans-serif;
 	margin: 0;
 	padding: 0;
-	background-image: url('images/bg-login.jpg');
-	background-size: cover;
-	background-repeat: no-repeat;
+	background-image: linear-gradient(to bottom, rgb(255, 128, 0), rgb(255, 255, 255));
 	min-height: 100vh; /* Đặt một chiều cao tối thiểu */
 	display: flex;
 	align-items: center; /* Căn giữa container theo chiều dọc */
@@ -26,6 +24,8 @@ body {
 	border: 1px solid #ccc;
 	border-radius: 5px;
 	background-color: rgba(255, 255, 255, 0.8);
+	box-shadow: 0 4px 6px #00000029;
+    border-radius: 8px;
 }
 
 .form-group {

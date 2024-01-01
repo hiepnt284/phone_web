@@ -3,8 +3,8 @@
 <div class="footer-container">
 	<div class="contact-info">
 		<h3>Thông tin liên hệ</h3>
-		<p>Email: hiepyolo02@gmail.com</p>
-		<p>Điện thoại: 0976071573</p>
+		<p>Email: mobileshop02@gmail.com</p>
+		<p>Điện thoại: 19009099</p>
 		<p>Địa chỉ: 123 Đường ABC, Thành phố XYZ</p>
 	</div>
 	<div class="footer-links">

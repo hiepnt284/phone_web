@@ -54,13 +54,16 @@ padding: 10px 20px;
 .container {
   flex: 1;
 }
+.kk{
+color: #00ff00;
+}
 </style>
 </head>
 <body>
 <div class="wrap">
 <%@include file="../component/header.jsp"%>
 	<div class="container">
-		<h1>Đặt hàng thành công!</h1>
+		<h1><i class="fa-solid fa-circle-check kk"></i> Đặt hàng thành công!</h1>
 		<p>Cảm ơn bạn đã đặt hàng. Đơn hàng của bạn đã được xác nhận và
 			đang được xử lý.</p>
 

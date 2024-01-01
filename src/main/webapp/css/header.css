@@ -1,22 +1,117 @@
-.activee {
-	background-color: white;
-	color: rgb(255, 128, 0) !important;
-}
 .search-button {
 	border: none;
 	background: none;
 	cursor: pointer;
 	padding: 0;
 }
-.dropbtn {
-  background-color: rgb(255, 128, 0);
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
+.headerr{
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.header {
+	display: flex;
+	justify-content: space-around;
+	padding: 20px;
+	background-color: rgb(255, 128, 0);
+	align-items: center;
+}
+
+.header a {
+	text-decoration: none;
+	color: white;
+}
+
+.logo-container {
+	display: flex;
+	align-items: center;
+	font-size: 30px;
+
+}
+
+.logo-container:hover {
+	cursor: pointer;
+	color: lightgray;
+}
+
+.logo,
+.cart-icon {
+	font-size: 40px;
+}
+.cart:hover{
+	color: lightgray;
+}
+
+.search-container {
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+}
+
+.search {
+	padding: 14px;
+	background-color: rgb(255, 128, 0);
+	border-radius: 0 5px 5px 0;
+	border: 2px solid rgb(255, 255, 255);
+}
+
+.search:hover {
+	cursor: pointer;
+	color: white;
+}
+
+
+#search-input {
+	width: 500px;
+	padding: 10px;
+	border: 2px solid rgb(255, 255, 255);
+	border-radius: 5px 0 0 5px;
+}
+.main-menu {
+	list-style-type: none;
+	display: flex;
+	justify-content: space-around;
+	background-color: rgb(255, 128, 0);
+	padding-bottom: 10px;
+}
+
+
+.item-menu {
+	font-size: 20px;
+	text-decoration: none;
+	color: white !important;
+	font-weight: bold;
+	padding: 10px;
+}
+
+.item-menu:hover {
+	border-bottom: 10px solid white;
+	color: white;
+	padding-bottom: 0;
+}
+
+.activee {
+	border-bottom: 10px solid white;
+	color: white;
+	padding-bottom: 0;
+}
+.btn{
+	background-color: darkorange !important;
+	border: 2px solid rgb(255, 255, 255) !important;
+}
+.btn:hover{
+	background-color:orangered !important;
+	color: white !important;
+}
+.modal-backdrop {
+	height:0px !important;
+	width: 0px !important;
 }
 
 .dropdown {
+  padding: 10px;
   position: relative;
   display: inline-block;
 }
@@ -24,6 +119,7 @@
 .dropdown-content {
   display: none;
   position: absolute;
+  top: 50px;
   background-color: #f1f1f1;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -37,9 +133,12 @@
   display: block;
 }
 
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {
+	background-color: #ddd;
+	color: black;
+	font-weight: bold;
+	}
 
 .dropdown:hover .dropdown-content {display: block;}
 
-.dropdown:hover .dropbtn {background-color: white; color:rgb(255, 128, 0)}
 

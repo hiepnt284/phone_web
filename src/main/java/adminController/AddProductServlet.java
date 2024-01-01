@@ -9,16 +9,20 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.Part;
 import model.Category;
+import model.ProductImages;
 import model.Products;
 
 import java.io.File;
 import java.io.IOException;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import dal.CategoryDAO;
 import dal.DAO;
 import dal.ProductDAO;
+import dal.ProductImagesDAO;
 
 @MultipartConfig
 public class AddProductServlet extends HttpServlet {
@@ -55,10 +59,22 @@ public class AddProductServlet extends HttpServlet {
             HttpSession session = request.getSession();
             if(f) {
             	String path = getServletContext().getRealPath("")+"images";
-            	System.out.println(path);
-            	File file = new File(path);
             	
             	part.write(path + File.separator+fileName);
+            	
+            	
+            	Collection<Part> imageParts = request.getParts();
+            	int pid = dao.getIdNewest();
+                for (Part imagePart : imageParts) {
+                    if (imagePart.getContentType() != null && imagePart.getContentType().startsWith("image/")&&!imagePart.getName().equals("img")) {
+                    	String fileNameImg = imagePart.getSubmittedFileName();
+                    	System.out.println(fileNameImg);
+                    	imagePart.write(path + File.separator+fileNameImg);
+                        ProductImagesDAO pidao = new ProductImagesDAO();
+                        ProductImages pi = new ProductImages(pid, fileNameImg);
+                        pidao.addProductImages(pi);
+                    }
+                }
             	
             	session.setAttribute("succMsg", "them thanh cong");
             	response.sendRedirect("/dien_thoai3/admin/listproduct");

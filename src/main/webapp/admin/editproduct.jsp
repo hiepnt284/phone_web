@@ -125,7 +125,7 @@
 <%@include file="headeradmin.jsp"%>
 	<h1>Edit Product</h1>
 	<c:set var="c" value="${requestScope.p}"/>
-	<form action="/dien_thoai3/admin/editproduct" method="post">
+	<form action="/dien_thoai3/admin/editproduct" method="post" enctype="multipart/form-data">
 		<label>ID:</label> <input type="number" name="id" readonly="readonly" value="${c.id}"/><br/><br/>
 		<label>Tên sản phẩm:</label><input type="text" name="name" value="${c.name}"/><br/><br/>
 		<label>Giá sản phẩm:</label><input type="number" name="price" value="${c.price}"/><br/><br/>
@@ -144,9 +144,18 @@
 		        </option>
 		    </c:forEach>
 		</select>
+		<br><br>
+		<input type="text" name="oldimg" value="${c.image}" hidden/>
+		<label>Thumbnail:</label><img style="width: 300px; height: auto" alt="anh" src="../images/${c.image }"> <br><br>
+		<label>Cập nhật Thumbnail:</label><input type="file" name="img"/><br/><br/>
 		<br/>
-		<br/>
-
+		<label>Ảnh</label>
+		<c:forEach items="${requestScope.list}" var="i" >
+			<img style="width: 120px; height: 120px" alt="anh" src="../images/${i.image }">
+		</c:forEach>
+		<br>
+		<br>
+		<label>Cập nhật Ảnh:</label><input type="file" name="images" accept="image/*" multiple><br/><br/>
 		<center>
 		<a class="button" href="/dien_thoai3/admin/listproduct">Back</a>
 		<input type="submit" value="Update"/>

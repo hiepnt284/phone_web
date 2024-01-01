@@ -1,5 +1,6 @@
 package dal;
 
+import java.lang.reflect.Array;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,7 +15,7 @@ public class ProductDAO extends dbContext{
 	private CategoryDAO cdao;
 	public List<Products> getAllByAd(){
 		List<Products> list = new ArrayList<>();
-		String sql = "select * from Products";
+		String sql = "select * from Products ORDER BY id DESC";
 		try {
 			PreparedStatement st = con.prepareStatement(sql);
 			ResultSet rs = st.executeQuery();
@@ -136,16 +137,17 @@ public class ProductDAO extends dbContext{
 	}
 	
 	public boolean update(Products p) {
-		String sql = "update Products set name=?,price=?,releasedate=?,describe=?,status=?,quantity=? where id=?";
+		String sql = "update Products set name=?,price=?,releasedate=?,describe=?,image=?,status=?,quantity=? where id=?";
 		try {
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, p.getName());
 			st.setDouble(2, p.getPrice());
 			st.setDate(3, p.getReleaseDate());
 			st.setString(4, p.getDescribe());
-			st.setString(5, p.getStatus());
-			st.setInt(6, p.getQuantity());
-			st.setInt(7, p.getId());
+			st.setString(5, p.getImage());
+			st.setString(6, p.getStatus());
+			st.setInt(7, p.getQuantity());
+			st.setInt(8, p.getId());
 			
 			int i=st.executeUpdate();
 			if(i==1) {
@@ -158,12 +160,14 @@ public class ProductDAO extends dbContext{
 		return false;
 	}
 	
+	
 	public boolean updateQuantity(Cart c) {
-		String sql = "update Products set quantity = quantity - ? where id=?";
+		String sql = "update Products set quantity = quantity - ?, sold = sold + ? where id=?";
 		try {
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setInt(1, c.getQuantity());
-			st.setInt(2, c.getPid());
+			st.setInt(2, c.getQuantity());
+			st.setInt(3, c.getPid());
 			
 			int i=st.executeUpdate();
 			if(i==1) {
@@ -183,6 +187,33 @@ public class ProductDAO extends dbContext{
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setInt(1, cid);
 			st.setString(2, "active");
+			ResultSet rs = st.executeQuery();
+			cdao = new CategoryDAO();
+			while(rs.next()) {
+				Products p = new Products(
+						rs.getInt("id"),
+						rs.getString("name"), 
+						rs.getDouble("price"),
+						rs.getDate("releasedate"), 
+						rs.getString("describe"),
+						rs.getString("image"),
+						cdao.getCategoryById(rs.getInt("cid")),
+						rs.getString("status"),
+						rs.getInt("quantity"));
+				
+				list.add(p);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	public List<Products> getProductsByCidByAd(int cid){
+		List<Products> list = new ArrayList<>();
+		String sql = "select * from Products where cid = ?";
+		try {
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setInt(1, cid);
 			ResultSet rs = st.executeQuery();
 			cdao = new CategoryDAO();
 			while(rs.next()) {
@@ -240,6 +271,7 @@ public class ProductDAO extends dbContext{
 	public List<Products> getBestSeller(){
 		String sql = "SELECT TOP 4 * FROM Products ORDER BY sold DESC";
 		List<Products> list = new ArrayList<Products>();
+		CategoryDAO cdao = new CategoryDAO();
 		try {
 			PreparedStatement st = con.prepareStatement(sql);
 			ResultSet rs = st.executeQuery();
@@ -266,6 +298,7 @@ public class ProductDAO extends dbContext{
 	public List<Products> getAdvancePro(){
 		String sql = "SELECT TOP 4 * FROM Products ORDER BY price DESC";
 		List<Products> list = new ArrayList<Products>();
+		CategoryDAO cdao = new CategoryDAO();
 		try {
 			PreparedStatement st = con.prepareStatement(sql);
 			ResultSet rs = st.executeQuery();
@@ -292,6 +325,7 @@ public class ProductDAO extends dbContext{
 	public List<Products> getCheapPro(){
 		String sql = "SELECT TOP 4 * FROM Products ORDER BY price ASC";
 		List<Products> list = new ArrayList<Products>();
+		CategoryDAO cdao = new CategoryDAO();
 		try {
 			PreparedStatement st = con.prepareStatement(sql);
 			ResultSet rs = st.executeQuery();
@@ -313,5 +347,27 @@ public class ProductDAO extends dbContext{
 			e.printStackTrace();
 		}
 		return list;
+	}
+	public List<Products> getListByPage(List<Products> list, int start, int end){
+		List<Products> arr = new ArrayList<Products>();
+		for(int i=start;i<end;i++) {
+			arr.add(list.get(i));
+		}
+		return arr;
+	}
+	public int getIdNewest(){
+		String sql = "select top 1 id from Products order by id desc";
+		try {
+			PreparedStatement st = con.prepareStatement(sql);
+			ResultSet rs = st.executeQuery();
+			if(rs.next()) {
+				return rs.getInt("id");
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return -1;
+		
 	}
 }

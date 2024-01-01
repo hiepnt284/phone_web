@@ -52,6 +52,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: rgb(244,244,244);
         }
 
         h1 {
@@ -105,7 +106,7 @@
 
     table {
     	margin-top:20px;
-        width: 90%;
+        width: 80%;
         border-collapse: collapse;
         background-color: #fff;
     }
@@ -128,7 +129,74 @@
         text-align: center;
         width: 180px;
     }
+	.pagination{
+	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+}
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+}
 
+.pagination a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
+.hidee{
+	visibility: hidden;
+}
+.sidebarrr {
+    width: 200px;
+    margin-top: 0px;
+    background-color:white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px #00000029;
+    float: left;
+    margin-left: 50px;
+    display: inline-block;
+}
+.title-side{
+	font-weight: 1000;
+	font-size: 20px;
+}
+
+.sidebarrr ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebarrr li {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.sidebarrr a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.sidebarrr a:hover {
+    color: #007bff;
+}
+.active1{
+	background-color: orange;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    padding-top: 0;
+}
     </style>
 
 <script type="text/javascript">
@@ -154,6 +222,20 @@
 	        	<h3 style="color:red">${failedMsg}</h3>
 	        	<c:remove var="failedMsg" scope="session"/>
 	    </c:if>
+	    <div class="containerrr">
+					<div class="sidebarrr">
+						<ul>
+							<li class="title-side">Danh mục</li>
+							<li class="${(cid==0)?'active1':'' }"> <a href="/dien_thoai3/admin/listproduct">Tất cả</a></li>
+							<c:forEach items="${requestScope.listcate }" var="c">
+								<li class="${(cid==c.id)?'active1':'' }"><a href="/dien_thoai3/admin/product-filter?cid=${c.id }">${c.name }</a></li>
+							</c:forEach>
+
+
+							<!-- Add more categories as needed -->
+						</ul>
+					</div>
+					<div class="main-content">
         <table>
             <tr>
                 <th>ID</th>
@@ -170,7 +252,7 @@
                 <tr>
                     <td>${id}</td>
                     <td>${c.name}</td>
-                    <td><img style="width: 70px; height: auto" alt="anh" src="../images/${c.image }"></td>
+                    <td><img style="width: 120px; height: 120px" alt="anh" src="../images/${c.image }"></td>
                     <td>${c.quantity}</td>
                     <td>${c.price}</td>
                     <td>${c.category.name}</td>
@@ -183,6 +265,46 @@
             </c:forEach>
         </table>
         <br>
+        	<c:set var="page" value="${requestScope.page }" />
+							<c:set var="numberpage" value="${requestScope.numberpage }" />
+							<div class="pagination">
+							<c:if test="${cid==0 }">
+								<a <c:if test="${page==1}">class="hidee"</c:if>
+									href="/dien_thoai3/admin/listproduct?page=${page-1}">&laquo;</a>
+							</c:if>
+							<c:if test="${cid!=0 }">
+								<a <c:if test="${page==1}">class="hidee"</c:if>
+									href="/dien_thoai3/admin/product-filter?cid=${cid }&page=${page-1}">&laquo;</a>
+							</c:if>
+							
+								<c:forEach begin="${1 }" end="${numberpage }" var="i">
+									<c:if test="${cid==0 }">
+										<a
+											<c:if test="${i eq page}"> 
+							class="active"
+							 </c:if>
+											href="/dien_thoai3/admin/listproduct?page=${i}">${i }</a>
+									</c:if>
+									<c:if test="${cid!=0 }">
+										<a
+											<c:if test="${i eq page}"> 
+							class="active"
+							 </c:if>
+											href="/dien_thoai3/admin/product-filter?cid=${cid }&page=${i}">${i }</a>
+									</c:if>
+
+								</c:forEach>
+								<c:if test="${cid==0 }">
+								<a <c:if test="${page==numberpage}">class="hidee"</c:if>
+									href="dien_thoai3/admin/listproduct?page=${page+1}">&raquo;</a>
+							</c:if>
+							<c:if test="${cid!=0 }">
+								<a <c:if test="${page==numberpage}">class="hidee"</c:if>
+									href="/dien_thoai3/admin/product-filter?cid=${cid }&page=${page+1}">&raquo;</a>
+							</c:if>
+							</div>
     </center>
+    </div>
+    </div>
 </body>
 </html>

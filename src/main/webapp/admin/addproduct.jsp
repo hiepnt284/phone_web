@@ -132,7 +132,7 @@
         	<c:remove var="failedMsg" scope="session"/>
         </c:if>
 	<form action="/dien_thoai3/admin/addproduct" method="post" enctype="multipart/form-data">
-		<label>Tên sản phẩm:</label> <input type="text" name="name"/><br/><br/>
+		<label>Tên sản phẩm:</label> <input type="text" name="name" autocomplete="off"/><br/><br/>
 		<label>Giá sản phẩm:</label><input type="number" name="price"/><br/><br/>
 		<label>Số lượng:</label><input type="number" name="quantity"/><br/><br/>
 		<label>Ngày ra mắt:</label><input type="date" name="releasedate"/><br/><br/>
@@ -154,9 +154,9 @@
 				
 		</select>
 		<br><br>
-		<label>Ảnh:</label><input type="file" name="img">
-		<br>
-		<br>
+		<label>Thumbnail:</label><input type="file" name="img" accept="image/*">
+		<br><br>
+		<label>Ảnh sản phẩm:</label> <input type="file" name="images" accept="image/*" multiple><br><br>
 		<center>
 		<a class="button" href="/dien_thoai3/admin/listproduct">Back</a>
 		<input type="submit" value="Save"/>

@@ -327,4 +327,54 @@
     <servlet-name>OrderServlet</servlet-name>
     <url-pattern>/user/order</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FilterProductServlet</display-name>
+    <servlet-name>FilterProductServlet</servlet-name>
+    <servlet-class>controller.FilterProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FilterProductServlet</servlet-name>
+    <url-pattern>/filter-product</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProductFilterServlet</display-name>
+    <servlet-name>ProductFilterServlet</servlet-name>
+    <servlet-class>adminController.ProductFilterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProductFilterServlet</servlet-name>
+    <url-pattern>/admin/product-filter</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ListBannerServlet</display-name>
+    <servlet-name>ListBannerServlet</servlet-name>
+    <servlet-class>adminController.ListBannerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListBannerServlet</servlet-name>
+    <url-pattern>/admin/listbanner</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditBannerServlet</display-name>
+    <servlet-name>EditBannerServlet</servlet-name>
+    <servlet-class>adminController.EditBannerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditBannerServlet</servlet-name>
+    <url-pattern>/admin/editbanner</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ContactServlet</display-name>
+    <servlet-name>ContactServlet</servlet-name>
+    <servlet-class>controller.ContactServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ContactServlet</servlet-name>
+    <url-pattern>/contact</url-pattern>
+  </servlet-mapping>
 </web-app>

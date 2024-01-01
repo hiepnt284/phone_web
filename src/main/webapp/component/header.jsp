@@ -75,13 +75,33 @@
 		</div>
 	</div>
 	<div class="main-menu">
-		<c:forEach items="${requestScope.listc}" var="c">
-			<c:set var="cid" value="${requestScope.cid}" />
-			<a href="/dien_thoai3/category?cid=${c.id}"
-				<c:if test="${c.id eq cid}">
-               class="activee"
-           </c:if>>
-				${c.name} </a>
-		</c:forEach>
+		<a href="/dien_thoai3/home" class="item-menu 
+		<c:if test="${not empty home }">
+               activee 
+        </c:if>">Trang chủ</a>
+		<a href="/dien_thoai3/filter-product" class="item-menu
+		<c:if test="${not empty pri }">
+               activee 
+        </c:if>
+		">Sản phẩm</a>
+		<div class="dropdown">
+  <a class="dropbtn item-menu
+  <c:if test="${not empty cid }">
+               activee 
+        </c:if>
+  ">Danh mục</a>
+  <div class="dropdown-content">
+    <c:forEach items="${sessionScope.listc}" var="c">
+		
+		<a href="/dien_thoai3/category?cid=${c.id}"
+			>
+			${c.name} </a>
+	</c:forEach>
+  </div>
+</div>
+		<a href="/dien_thoai3/contact" class="item-menu <c:if test="${not empty contact }">
+               activee 
+        </c:if>">Liên hệ</a>
 	</div>
 </div>
+<div style="margin-top: 147.2px"></div>

@@ -80,6 +80,10 @@ background-color: orangered !important;
 	        <i class="fa-solid fa-cubes icon-feature" ></i>
 	        <h2>Quản lý Đơn Hàng</h2>
         </a>
+                <a href="/dien_thoai3/admin/listbanner" class="btn btn-primary">
+	        <i class="fa-solid fa-broom-ball icon-feature"></i>
+	        <h2>Quản lý Banner</h2>
+        </a>
     </div>
 </body>
 </html>

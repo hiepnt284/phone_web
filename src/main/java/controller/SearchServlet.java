@@ -28,6 +28,7 @@ public class SearchServlet extends HttpServlet {
 			CategoryDAO cdao = new CategoryDAO();
 			List<Category> listc = cdao.getAll();
 			List<Products> listp = pdao.search(key);
+			int soluong = listp.size();
 			HttpSession session = request.getSession();
 			User u = (User)session.getAttribute("user");
 			if(u!=null) {
@@ -36,6 +37,7 @@ public class SearchServlet extends HttpServlet {
 				request.setAttribute("count", count);
 			}
 			request.setAttribute("key", key);
+			request.setAttribute("soluong", soluong);
 			request.setAttribute("listp", listp);
 			request.setAttribute("listc", listc);
 			request.setAttribute("a", "a");

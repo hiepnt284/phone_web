@@ -13,11 +13,16 @@
 <style type="text/css">
 
 
-
+.wrap {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
 .container {
+	flex: 1;
 	max-width: 800px;
-	margin: 20px auto;
+	margin: 30px auto;
 	background-color: #fff;
 	padding: 20px;
 	border-radius: 5px;
@@ -95,6 +100,7 @@ width: 100px;
 </style>
 </head>
 <body>
+<div class="wrap">
 	<%@include file="../component/header.jsp"%>
 	<div class="container">
 		<h1>Checkout</h1>
@@ -149,5 +155,6 @@ width: 100px;
 			</c:if>
 	</div>
 	<%@include file="../component/footer.jsp"%>
+	</div>
 </body>
 </html>

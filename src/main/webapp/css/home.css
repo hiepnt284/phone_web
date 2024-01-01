@@ -3,110 +3,109 @@
 	padding: 0;
 }
 
+.wrapp {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-.header {
+.containerr {
+  flex-grow: 1;
+}
+.cnt-main{
 	display: flex;
-	justify-content: space-around;
-	padding: 20px;
-	background-color: rgb(255, 128, 0);
-	align-items: center;
 }
-
-.header a {
-	text-decoration: none;
-	color: white;
+.main-cnt{
+	width: 70%;
 }
-
-.logo-container {
-	display: flex;
-	align-items: center;
-	font-size: 30px;
-
-}
-
-.logo-container:hover {
-	cursor: pointer;
-	color: lightgray;
-}
-
-.logo,
-.cart-icon {
-	font-size: 40px;
-}
-.cart:hover{
-	color: lightgray;
-}
-
-.search-container {
-	display: flex;
+.banner1{
+	width: 15%;
+	margin-top: 90px;
 	text-align: center;
-	justify-content: center;
-	align-items: center;
+}
+.banner1 img{
+	width: 70%;
+	height: 600px;
+}
+.banner2{
+	width: 15%;
+	margin-top: 90px;
+	text-align: center;
+}
+.banner2 img{
+	width: 70%;
+	height: 600px;
+	
+}
+.banner img{
+	width: 100vw;
+	height: 400px;
+}
+.title-content{
+	display: inline-block;
+	border-bottom: 10px solid rgb(255, 128, 0);
 }
 
-.search {
-	padding: 14px;
-	background-color: rgb(255, 128, 0);
-	border-radius: 0 5px 5px 0;
-	border: 2px solid rgb(255, 255, 255);
+body{
+	background-color: rgb(244,244,244)!important;
 }
-
-.search:hover {
-	cursor: pointer;
-	color: white;
-}
-
-
-#search-input {
-	width: 500px;
+.product-item {
+	width: 250px;
 	padding: 10px;
-	border: 2px solid rgb(255, 255, 255);
-	border-radius: 5px 0 0 5px;
+	box-shadow: 0 4px 6px #00000029;
+    border-radius: 8px;
+    border: none;
+	background-color: white;
+	max-height: 331px;
 }
 
 
 
-.banner-content {
-	text-align: center;
-	color: rgb(255, 128, 0);
-}
 
-.banner-content h2 {
-	font-size: 36px;
-	margin-bottom: 20px;
-}
-
-.banner-content p {
-	font-size: 18px;
-	margin-bottom: 30px;
-}
-
-.main-menu {
-	list-style-type: none;
-	display: flex;
-	justify-content: space-around;
-	background-color: rgb(255, 128, 0);
-	padding-bottom: 10px;
+.side{
+	margin-left: 70px;
+	width: 15%;
+	float: left;
 }
 
 
-.main-menu a {
+.sidebarrr {
+    width: 200px;
+    background-color:white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px #00000029;
+    margin-bottom: 30px;
+}
+.title-side{
+	font-weight: 1000;
 	font-size: 20px;
-	text-decoration: none;
-	color: white;
-	font-weight: bold;
-	padding: 10px;
-	border-radius: 10px;
 }
 
-.main-menu a:hover {
-	background-color: white;
-	color: rgb(255, 128, 0);
+.sidebarrr ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-.activee {
-	background-color: white;
-	color: rgb(255, 128, 0) !important;
+.sidebarrr li {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.sidebarrr a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.sidebarrr a:hover {
+    color: #007bff;
+}
+
+.main-content {
+    padding: 20px;
+    padding-top: 0;
 }
 
 .featured-products {
@@ -124,21 +123,23 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	gap: 20px;
+	width: 100%;
+	margin: 0 auto;
 
 }
-.btn{
-	background-color: darkorange !important;
-	border: 2px solid rgb(255, 255, 255) !important;
-}
-.btn:hover{
-	background-color:orangered !important;
-	color: white !important;
+.filterr{
+	min-height: 682px;
+	width: 80%;
+	margin: 0 auto;
 }
 
+.active1{
+	background-color: orange;
+}
 
 .product-item img {
-	width: 100%;
-	height: auto;
+	width: 150px;
+	height: 150px;
 }
 
 .product-item h3 {
@@ -149,10 +150,37 @@
 .product-item .price {
 	font-weight: bold;
 }
+.pagination{
+	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+}
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+}
 
+.pagination a.active {
+  background-color: dodgerblue;
+  color: white;
+}
 
+.pagination a:hover:not(.active) {background-color: #ddd;}
 
-
+.hidee{
+	visibility: hidden;
+}
+.contact-container{
+	width: 1000px;
+	margin: 0 auto;
+	background-color: #fff;
+	padding: 20px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+	text-align: center;
+}
 
 footer {
 	margin-top: 20px;
